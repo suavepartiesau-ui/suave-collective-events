@@ -170,7 +170,7 @@ const SuaveSponsorship = () => {
                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
                <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-2">The Founder</div>
-                  <h3 className="text-3xl font-serif text-white">Jevon Santoso</h3>
+                  <h3 className="text-3xl font-serif text-white">Rahul Reddy</h3>
                </div>
             </div>
 
@@ -322,7 +322,7 @@ const SuaveSponsorship = () => {
           
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
              <p>© 2026 The Suave Collective.</p>
-             <p>Designed in South Australia.</p>
+             <p>Designed, created and passionately developed in South Australia.</p>
           </div>
         </div>
       </footer>
