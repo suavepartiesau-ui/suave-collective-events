@@ -93,11 +93,14 @@ const SuaveSponsorship = () => {
           {/* Logo Integration */}
           <div className="flex items-center space-x-4">
             <div className="h-8 w-8 md:h-10 md:w-10 overflow-hidden">
-<div className="h-full w-full bg-white rounded-full"></div> 
-                 className="h-full w-full object-contain invert brightness-0 invert" 
-               />
-            </div>
-            <span className="font-serif text-xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
+{/* Real Logo Image */}
+<div className="h-8 w-8 md:h-10 md:w-10 overflow-hidden">
+    <img 
+      src={logo} 
+      alt="Suave Collective" 
+      className="h-full w-full object-contain invert brightness-0 invert" 
+    />
+</div>
           </div>
 
           {/* Desktop Links - Minimalist */}
