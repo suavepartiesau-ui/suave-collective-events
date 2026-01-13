@@ -93,13 +93,11 @@ const SuaveSponsorship = () => {
           {/* Logo Integration */}
           <div className="flex items-center space-x-4">
            {/* Real Logo Image */}
-<div className="h-8 w-8 md:h-10 md:w-10 overflow-hidden">
     <img 
       src={logo} 
       alt="Suave Collective" 
       className="h-full w-full object-contain invert brightness-0 invert" 
     />
-</div>        
           {/* Desktop Links - Minimalist */}
           <div className="hidden md:flex items-center space-x-12">
             {['Manifesto', 'Events', 'Talent'].map((item) => (
