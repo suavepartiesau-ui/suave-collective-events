@@ -11,13 +11,17 @@ import {
   Briefcase, 
   Menu, 
   X, 
-  ChevronDown
+  ChevronDown,
+  Phone,
+  MessageCircle,
+  Mail
 } from 'lucide-react';
 
 const SuaveSponsorship = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('corporate'); // 'corporate' or 'community'
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [partnerModalOpen, setPartnerModalOpen] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -111,7 +115,7 @@ const SuaveSponsorship = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-pink-500 selection:text-white">
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-pink-500 selection:text-white relative">
       
       {/* Slimline Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-500 border-b border-white/10 ${scrolled ? 'bg-black py-4' : 'bg-black/90 backdrop-blur-sm py-6'}`}>
@@ -135,7 +139,10 @@ const SuaveSponsorship = () => {
                 {item}
               </a>
             ))}
-            <button className="text-xs uppercase tracking-[0.2em] font-bold border-b border-white pb-1 hover:text-pink-500 hover:border-pink-500 transition-all">
+            <button 
+              onClick={() => setPartnerModalOpen(true)}
+              className="text-xs uppercase tracking-[0.2em] font-bold border-b border-white pb-1 hover:text-pink-500 hover:border-pink-500 transition-all"
+            >
               Partner Access
             </button>
           </div>
@@ -150,11 +157,20 @@ const SuaveSponsorship = () => {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black pt-28 px-6 md:hidden animate-in slide-in-from-top-10">
           <div className="flex flex-col space-y-8">
-            {['Events', 'Talent', 'Partner Access'].map((item) => (
-              <a key={item} href="#" className="text-3xl font-serif text-white border-b border-white/10 pb-4">
+            {['Events', 'Talent'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-3xl font-serif text-white border-b border-white/10 pb-4">
                 {item}
               </a>
             ))}
+            <button 
+              onClick={() => {
+                setPartnerModalOpen(true);
+                setMobileMenuOpen(false);
+              }}
+              className="text-3xl font-serif text-white border-b border-white/10 pb-4 text-left"
+            >
+              Partner Access
+            </button>
           </div>
         </div>
       )}
@@ -453,6 +469,43 @@ const SuaveSponsorship = () => {
           </div>
         </div>
       </footer>
+
+      {/* Partner Access Modal */}
+      {partnerModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+            onClick={() => setPartnerModalOpen(false)}
+          ></div>
+          
+          {/* Modal Content */}
+          <div className="relative bg-zinc-950 border border-white/10 p-8 md:p-12 max-w-lg w-full shadow-2xl animate-in zoom-in-50 duration-300">
+            {/* Close Button */}
+            <button 
+              onClick={() => setPartnerModalOpen(false)}
+              className="absolute top-4 right-4 text-zinc-500 hover:text-white"
+            >
+              <X size={24} />
+            </button>
+
+            <h3 className="text-3xl font-serif mb-2 text-white">Partner Direct Line</h3>
+            <p className="text-gray-400 mb-8">Priority access for Corporate & Small Business Sponsors.</p>
+
+            <div className="space-y-4">
+              <a href="tel:+61481987807" className="flex items-center justify-center w-full py-4 border border-white/20 hover:bg-white hover:text-black transition-all uppercase tracking-widest text-xs font-bold group">
+                <Phone className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform" /> Call Direct
+              </a>
+              <a href="https://wa.me/61481987807" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full py-4 border border-white/20 hover:bg-[#25D366] hover:border-[#25D366] hover:text-white transition-all uppercase tracking-widest text-xs font-bold group">
+                <MessageCircle className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform" /> WhatsApp Chat
+              </a>
+              <a href="mailto:suaveparties.au@gmail.com?subject=Partner%20Access%20Inquiry" className="flex items-center justify-center w-full py-4 border border-white/20 hover:bg-pink-500 hover:border-pink-500 hover:text-white transition-all uppercase tracking-widest text-xs font-bold group">
+                <Mail className="w-4 h-4 mr-3 group-hover:scale-110 transition-transform" /> Send Proposal
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
