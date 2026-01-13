@@ -29,22 +29,22 @@ const SuaveSponsorship = () => {
   const content = {
     corporate: {
       headline: "Corporate Dominance",
-      subhead: "Stop buying logo placements. Start building cultural capital.",
+      subhead: "No need to keep buying e-commerce real-estate online. Start building cultural capital togther, to scale collectively.",
       stats: [
-        { number: '350%', label: 'Return on Investment' },
-        { number: '5.6M', label: 'Total Audience Reach' },
-        { number: '12k', label: 'VIP Guests Hosted' },
-        { number: '45+', label: 'Brand Activations' }
+        { number: '10x your time', label: 'Return on Investment' },
+        { number: 'Aim high. 1B+ views across accounts', label: 'Total Audience Reach' },
+        { number: '1000-5000', label: 'VIP Guests Hosted' },
+        { number: '100+', label: 'Brand Advocate Activations' }
       ],
       benefits: [
         {
           title: 'Hyper-Targeted Activation',
-          desc: 'Bespoke, on-ground activations that force engagement and drive social sharing.',
+          desc: 'Bespoke assistance that forces enduring engagement and drives social collaboration, with sharing across social accounts.',
           icon: Zap
         },
         {
           title: 'Executive Hospitality',
-          desc: 'The best deal-closing environment is a VIP booth at a sold-out show.',
+          desc: 'The ideal deal-closing environment is networking through VIP experiences at a sold-out shows.',
           icon: Briefcase
         },
         {
@@ -56,17 +56,17 @@ const SuaveSponsorship = () => {
     },
     community: {
       headline: "Community Impact",
-      subhead: "Directly fund the artists, spaces, and voices that make this city vibrant.",
+      subhead: "Directly fund the artists, spaces, and voices that make the entertainment industry vibrant.",
       stats: [
-        { number: '$250k', label: 'Direct Artist Grants' },
-        { number: '150+', label: 'Local Jobs Created' },
-        { number: '85%', label: 'Diverse Talent Rep' },
-        { number: 'Free', label: 'Public Workshops' }
+        { number: '10', label: 'Direct Artist Grants' },
+        { number: '?', label: 'Local Jobs Created' },
+        { number: '95%', label: 'Diverse Talent Representation' },
+        { number: 'Free Business and Finance Strategy Workshop for Unique Individuals', label: 'Public Workshops' }
       ],
       benefits: [
         {
           title: 'Direct Artist Support',
-          desc: 'Commissioning new works and paying artists fair wages.',
+          desc: 'Commissioning new virtual/digital and physical/in-person work in order for artists to get paid fair remuneration.',
           icon: Music
         },
         {
@@ -76,7 +76,7 @@ const SuaveSponsorship = () => {
         },
         {
           title: 'Cultural Accessibility',
-          desc: 'Subsidized tickets ensuring art remains accessible to everyone.',
+          desc: 'Subsidised tickets ensuring art remains accessible to everyone.',
           icon: Globe
         }
       ]
@@ -166,7 +166,7 @@ const SuaveSponsorship = () => {
             <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50">
                <img 
                  src="/profile1.jpg" 
-                 alt="Rahul Reddy - Director" 
+                 alt="Rahul Reddy - Creative Managing Partner" 
                  className="absolute inset-0 w-full h-full object-contain" // Changed to object-contain to ensure WHOLE photo is visible
                />
                {/* Reduced opacity of gradient so photo is clearer */}
@@ -184,19 +184,19 @@ const SuaveSponsorship = () => {
                </h2>
                <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                   <p>
-                     The Suave Collective was born from a refusal to accept the mediocre. In a city teeming with potential, we saw a gap between raw talent and world-class execution.
+                     The Suave Collective was born with the ideology that good, and average are the enemy of great. In a world teeming with potential, we saw a gap between raw talent and world-class execution.
                   </p>
                   <p>
                      We operate at the intersection of nightlife, corporate precision, and artistic chaos. Our mission is simple: to build platforms where brands don't just advertise—they become part of the cultural fabric.
                   </p>
                   <p>
-                     When you partner with us, you aren't hiring an agency. You are joining a movement that is reshaping the identity of South Australia.
+                     When you contract with us, you aren't part of anything but a collective that cares. You are joining a cultural movement that is reshaping the identity of Australia and International Artists from all walks of life.
                   </p>
                </div>
                <div className="mt-12">
                   {/* Signature Slot - Currently holding Logo as Placeholder */}
                   <img 
-                     src="/logo.png" 
+                     src="signature.png" 
                      alt="Signature Placeholder"
                      className="h-16 object-contain opacity-80"
                   />
