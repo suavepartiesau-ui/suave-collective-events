@@ -14,6 +14,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import logo from './logo.png';
+import profile from './profile1.jpg';
 const SuaveSponsorship = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('corporate'); // 'corporate' or 'community'
@@ -162,7 +163,7 @@ const SuaveSponsorship = () => {
             {/* Image Column */}
             <div className="relative h-[600px] md:h-auto w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                <img 
-                 src="https://framerusercontent.com/images/1zYq5E2TzYQZg3vQZ5Q3.jpg" // Using 1000022607.jpg equivalent
+                 src={profile} // Using 1000022607.jpg equivalent
                  alt="Director Portrait" 
                  className="absolute inset-0 w-full h-full object-cover"
                />
