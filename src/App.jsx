@@ -29,7 +29,7 @@ const SuaveSponsorship = () => {
   const content = {
     corporate: {
       headline: "Corporate Dominance",
-      subhead: "Stop buying logo placements. Start building cultural capital.",
+      subhead: "Stop buying e-commerce spaces online. Start building cultural capital COLLECTIVELY.",
       stats: [
         { number: '350%', label: 'Return on Investment' },
         { number: '5.6M', label: 'Total Audience Reach' },
@@ -39,12 +39,12 @@ const SuaveSponsorship = () => {
       benefits: [
         {
           title: 'Hyper-Targeted Activation',
-          desc: 'Bespoke, on-ground activations that force engagement and drive social sharing.',
+          desc: 'Bespoke, global activations that force engagement and drive social sharing.',
           icon: Zap
         },
         {
           title: 'Executive Hospitality',
-          desc: 'The best deal-closing environment is a VIP booth at a sold-out show.',
+          desc: 'The best deal-closing environment is the VIP section at a sold-out show.',
           icon: Briefcase
         },
         {
@@ -56,11 +56,11 @@ const SuaveSponsorship = () => {
     },
     community: {
       headline: "Community Impact",
-      subhead: "Directly fund the artists, spaces, and voices that make this city vibrant.",
+      subhead: "Directly fund the artists, spaces, and voices that make arts and entertainment vibrant.",
       stats: [
         { number: '$250k', label: 'Direct Artist Grants' },
         { number: '150+', label: 'Local Jobs Created' },
-        { number: '85%', label: 'Diverse Talent Rep' },
+        { number: '85%', label: 'Diverse Talent Representation' },
         { number: 'Free', label: 'Public Workshops' }
       ],
       benefits: [
@@ -76,7 +76,7 @@ const SuaveSponsorship = () => {
         },
         {
           title: 'Cultural Accessibility',
-          desc: 'Subsidized tickets ensuring art remains accessible to everyone.',
+          desc: 'Subsidised tickets ensuring art remains accessible to everyone.',
           icon: Globe
         }
       ]
@@ -142,7 +142,7 @@ const SuaveSponsorship = () => {
                 Curated.
               </h1>
               <p className="text-lg text-gray-400 max-w-xl leading-relaxed border-l border-pink-500 pl-6">
-                We bridge the gap between premium brand strategy and authentic community impact. No fluff. Just results.
+                We bridge the gap between premium brand strategy and authentic community impact. Diversity. Engagement not just Equity. Inclusion."
               </p>
             </div>
             
@@ -180,13 +180,13 @@ const SuaveSponsorship = () => {
                </h2>
                <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                   <p>
-                     The Suave Collective was born from a refusal to accept the mediocre. In a city teeming with potential, we saw a gap between raw talent and world-class execution.
+                     The Suave Collective was born from a refusal to accept that great needs to be exchanged for good. In a city teeming with potential, we saw a gap between raw talent and world-class execution.
                   </p>
                   <p>
                      We operate at the intersection of nightlife, corporate precision, and artistic chaos. Our mission is simple: to build platforms where brands don't just advertise—they become part of the cultural fabric.
                   </p>
                   <p>
-                     When you partner with us, you aren't hiring an agency. You are joining a movement that is reshaping the identity of South Australia.
+                     When you partner with us, you aren't hiring us, you are engaging with a movement. You are joining a tour de force that is changing the shape of entertainment and fighting for the rights of performance artists everywhere...and...anywhere.
                   </p>
                </div>
                <div className="mt-12">
@@ -295,8 +295,8 @@ const SuaveSponsorship = () => {
             <div>
               <span className="font-serif text-2xl font-bold block mb-6">SUAVE.</span>
               <p className="text-xs text-gray-500 max-w-xs leading-relaxed">
-                Adelaide based. Globally connected.<br/>
-                We build culture, not just events.
+                Adelaide based. Universally integrated.<br/>
+                We build culture through engagement at events.
               </p>
             </div>
             
