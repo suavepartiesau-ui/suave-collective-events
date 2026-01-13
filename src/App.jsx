@@ -93,7 +93,7 @@ const SuaveSponsorship = () => {
           <div className="flex items-center space-x-4">
            {/* Real Logo Image */}
     <img 
-      src={logo} 
+     src="/logo.png"
       alt="Suave Collective" 
       className="h-full w-full object-contain invert brightness-0 invert" 
     />
