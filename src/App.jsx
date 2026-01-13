@@ -322,7 +322,7 @@ const SuaveSponsorship = () => {
           
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
              <p>© 2026 The Suave Collective.</p>
-             <p>Designed in South Australia.</p>
+             <p>Designed lovingly, created with care and developed with due diligence in South Australia.</p>
           </div>
         </div>
       </footer>
