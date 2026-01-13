@@ -4,13 +4,13 @@ import {
   TrendingUp, 
   Users, 
   Award, 
-  Zap,
+  Zap, 
   Heart, 
-  Globe,
-  Music,
-  Briefcase,
-  Menu,
-  X,
+  Globe, 
+  Music, 
+  Briefcase, 
+  Menu, 
+  X, 
   ChevronDown
 } from 'lucide-react';
 
@@ -162,16 +162,18 @@ const SuaveSponsorship = () => {
       {/* LEADERSHIP / ABOUT SECTION - Integrated with Photo */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column - FULL VISIBILITY FIX */}
-            <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50">
+            {/* Image Column - FULL VISIBILITY & CENTERED FIX */}
+            <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center">
                <img 
                  src="/profile1.jpg" 
                  alt="Rahul Reddy - Creative Managing Partner" 
-                 className="absolute inset-0 w-full h-full object-contain" // Changed to object-contain to ensure WHOLE photo is visible
+                 className="absolute inset-0 w-full h-full object-contain object-center" 
                />
                {/* Reduced opacity of gradient so photo is clearer */}
                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
-               <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
+               
+               {/* CENTERED TEXT OVERLAY */}
+               <div className="absolute bottom-12 w-full text-center z-10">
                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-2">The Founder</div>
                   <h3 className="text-3xl font-serif text-white">Rahul Reddy</h3>
                </div>
@@ -194,9 +196,9 @@ const SuaveSponsorship = () => {
                   </p>
                </div>
                <div className="mt-12">
-                  {/* Signature Slot - Currently holding Logo as Placeholder */}
+                  {/* Signature Slot */}
                   <img 
-                     src="signature.png" 
+                     src="/signature.png" 
                      alt="Signature Placeholder"
                      className="h-16 object-contain opacity-80"
                   />
@@ -322,7 +324,7 @@ const SuaveSponsorship = () => {
           
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
              <p>© 2026 The Suave Collective.</p>
-             <p>Designed lovingly, created with care and developed with due diligence in South Australia.</p>
+             <p>Designed in South Australia.</p>
           </div>
         </div>
       </footer>
