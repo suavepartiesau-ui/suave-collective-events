@@ -90,9 +90,8 @@ const SuaveSponsorship = () => {
       <nav className={`fixed w-full z-50 transition-all duration-500 border-b border-white/10 ${scrolled ? 'bg-black py-4' : 'bg-black/90 backdrop-blur-sm py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           
-          {/* Logo Integration - INCREASED SIZE 100% */}
+          {/* Logo Integration */}
           <div className="flex items-center gap-6">
-             {/* Mobile: h-24 (Big), Desktop: h-32 (Huge) to ensure visibility */}
              <img 
                src="/logo.png" 
                alt="Suave Collective Logo" 
@@ -101,7 +100,7 @@ const SuaveSponsorship = () => {
              <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
 
-          {/* Desktop Links - Minimalist */}
+          {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-12">
             {['Events', 'Talent'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
@@ -124,7 +123,7 @@ const SuaveSponsorship = () => {
         <div className="fixed inset-0 z-40 bg-black pt-28 px-6 md:hidden animate-in slide-in-from-top-10">
           <div className="flex flex-col space-y-8">
             {['Events', 'Talent', 'Partner Access'].map((item) => (
-              <a key={item} href="#" className="text-3xl font-serif text-white border-b border-white/10 pb-4">
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-3xl font-serif text-white border-b border-white/10 pb-4">
                 {item}
               </a>
             ))}
@@ -159,20 +158,18 @@ const SuaveSponsorship = () => {
         </div>
       </section>
 
-      {/* LEADERSHIP / ABOUT SECTION - Integrated with Photo */}
+      {/* LEADERSHIP / ABOUT SECTION */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column - FULL VISIBILITY & CENTERED FIX */}
+            {/* Image Column */}
             <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center">
                <img 
                  src="/profile1.jpg" 
                  alt="Rahul Reddy - Creative Managing Partner" 
                  className="absolute inset-0 w-full h-full object-contain object-center" 
                />
-               {/* Reduced opacity of gradient so photo is clearer */}
                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
                
-               {/* CENTERED TEXT OVERLAY */}
                <div className="absolute bottom-12 w-full text-center z-10">
                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-2">The Founder</div>
                   <h3 className="text-3xl font-serif text-white">Rahul Reddy</h3>
@@ -196,7 +193,6 @@ const SuaveSponsorship = () => {
                   </p>
                </div>
                <div className="mt-12">
-                  {/* Signature Slot */}
                   <img 
                      src="/signature.png" 
                      alt="Signature Placeholder"
@@ -291,6 +287,79 @@ const SuaveSponsorship = () => {
         </div>
       </section>
 
+      {/* NEW TALENT REGISTRATION SECTION */}
+      <section id="talent" className="py-32 border-b border-white/10 relative overflow-hidden bg-zinc-950">
+         <div className="absolute top-0 right-0 w-1/3 h-full bg-pink-900/10 blur-[100px] pointer-events-none"></div>
+         
+         <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+               
+               <div>
+                  <div className="inline-block mb-6">
+                     <span className="text-xs font-bold text-pink-500 tracking-[0.2em] uppercase border border-pink-500/30 px-3 py-1 rounded-sm">Join The Roster</span>
+                  </div>
+                  <h2 className="text-5xl md:text-7xl font-serif mb-6">Your stage is waiting.</h2>
+                  <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+                     We are constantly scouting for the unique, the bold, and the disciplined. If you are an artist, performer, or creative ready to scale, we want to hear from you.
+                  </p>
+                  
+                  <ul className="space-y-4 mb-8">
+                     <li className="flex items-center text-sm text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
+                        Access to paid commercial opportunities
+                     </li>
+                     <li className="flex items-center text-sm text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
+                        Professional development & mentorship
+                     </li>
+                     <li className="flex items-center text-sm text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
+                        Global network exposure
+                     </li>
+                  </ul>
+               </div>
+
+               {/* Talent Form UI */}
+               <div className="bg-zinc-900/50 border border-white/10 p-8 md:p-12 backdrop-blur-sm">
+                  <h3 className="text-2xl font-serif mb-8">Talent Application</h3>
+                  <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                           <label className="text-xs uppercase tracking-widest text-gray-500">Full Name</label>
+                           <input type="text" className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" placeholder="Name" />
+                        </div>
+                        <div className="space-y-2">
+                           <label className="text-xs uppercase tracking-widest text-gray-500">Stage Name / Handle</label>
+                           <input type="text" className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" placeholder="@handle" />
+                        </div>
+                     </div>
+
+                     <div className="space-y-2">
+                        <label className="text-xs uppercase tracking-widest text-gray-500">Email Address</label>
+                        <input type="email" className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" placeholder="email@address.com" />
+                     </div>
+
+                     <div className="space-y-2">
+                        <label className="text-xs uppercase tracking-widest text-gray-500">Primary Discipline</label>
+                        <select className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none">
+                           <option>Musician / Vocalist</option>
+                           <option>Visual Artist</option>
+                           <option>DJ / Producer</option>
+                           <option>Dancer / Performer</option>
+                           <option>Other</option>
+                        </select>
+                     </div>
+
+                     <button className="w-full bg-white text-black font-bold uppercase tracking-[0.2em] py-5 hover:bg-pink-500 hover:text-white transition-all mt-4">
+                        Apply Now
+                     </button>
+                  </form>
+               </div>
+
+            </div>
+         </div>
+      </section>
+
       {/* Footer - Minimalist */}
       <footer className="border-t border-white/10 bg-black py-20">
         <div className="max-w-7xl mx-auto px-6">
@@ -298,8 +367,8 @@ const SuaveSponsorship = () => {
             <div>
               <span className="font-serif text-2xl font-bold block mb-6">SUAVE.</span>
               <p className="text-xs text-gray-500 max-w-xs leading-relaxed">
-                Adelaide based. Globally connected.<br/>
-                We build culture, not just events.
+                Adelaide based. Globally present.<br/>
+                We build dreams and culture, through engaging events.
               </p>
             </div>
             
