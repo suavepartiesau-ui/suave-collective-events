@@ -19,11 +19,38 @@ const SuaveSponsorship = () => {
   const [activeTab, setActiveTab] = useState('corporate'); // 'corporate' or 'community'
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Form State
+  const [formData, setFormData] = useState({
+    name: '',
+    handle: '',
+    email: '',
+    discipline: 'Musician / Vocalist'
+  });
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle Form Inputs
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle Form Submission (Mailto)
+  const handleApply = (e) => {
+    e.preventDefault();
+    const subject = `Talent Application: ${formData.name}`;
+    const body = `Name: ${formData.name}\nHandle: ${formData.handle}\nEmail: ${formData.email}\nPrimary Discipline: ${formData.discipline}`;
+    
+    // Open email client with pre-filled data
+    window.location.href = `mailto:suaveparties.au@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   // Data Structure
   const content = {
@@ -90,8 +117,9 @@ const SuaveSponsorship = () => {
       <nav className={`fixed w-full z-50 transition-all duration-500 border-b border-white/10 ${scrolled ? 'bg-black py-4' : 'bg-black/90 backdrop-blur-sm py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           
-          {/* Logo Integration */}
+          {/* Logo Integration - INCREASED SIZE 100% */}
           <div className="flex items-center gap-6">
+             {/* Mobile: h-24 (Big), Desktop: h-32 (Huge) to ensure visibility */}
              <img 
                src="/logo.png" 
                alt="Suave Collective Logo" 
@@ -100,7 +128,7 @@ const SuaveSponsorship = () => {
              <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
 
-          {/* Desktop Links */}
+          {/* Desktop Links - Minimalist */}
           <div className="hidden md:flex items-center space-x-12">
             {['Events', 'Talent'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
@@ -123,7 +151,7 @@ const SuaveSponsorship = () => {
         <div className="fixed inset-0 z-40 bg-black pt-28 px-6 md:hidden animate-in slide-in-from-top-10">
           <div className="flex flex-col space-y-8">
             {['Events', 'Talent', 'Partner Access'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-3xl font-serif text-white border-b border-white/10 pb-4">
+              <a key={item} href="#" className="text-3xl font-serif text-white border-b border-white/10 pb-4">
                 {item}
               </a>
             ))}
@@ -158,18 +186,20 @@ const SuaveSponsorship = () => {
         </div>
       </section>
 
-      {/* LEADERSHIP / ABOUT SECTION */}
+      {/* LEADERSHIP / ABOUT SECTION - Integrated with Photo */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column */}
+            {/* Image Column - FULL VISIBILITY & CENTERED FIX */}
             <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center">
                <img 
                  src="/profile1.jpg" 
                  alt="Rahul Reddy - Creative Managing Partner" 
                  className="absolute inset-0 w-full h-full object-contain object-center" 
                />
+               {/* Reduced opacity of gradient so photo is clearer */}
                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
                
+               {/* CENTERED TEXT OVERLAY */}
                <div className="absolute bottom-12 w-full text-center z-10">
                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-2">The Founder</div>
                   <h3 className="text-3xl font-serif text-white">Rahul Reddy</h3>
@@ -193,6 +223,7 @@ const SuaveSponsorship = () => {
                   </p>
                </div>
                <div className="mt-12">
+                  {/* Signature Slot - Updated to use signature.png */}
                   <img 
                      src="/signature.png" 
                      alt="Signature Placeholder"
@@ -322,26 +353,52 @@ const SuaveSponsorship = () => {
                {/* Talent Form UI */}
                <div className="bg-zinc-900/50 border border-white/10 p-8 md:p-12 backdrop-blur-sm">
                   <h3 className="text-2xl font-serif mb-8">Talent Application</h3>
-                  <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                  <form className="space-y-6" onSubmit={handleApply}>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                            <label className="text-xs uppercase tracking-widest text-gray-500">Full Name</label>
-                           <input type="text" className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" placeholder="Name" />
+                           <input 
+                             type="text" 
+                             name="name"
+                             value={formData.name}
+                             onChange={handleInputChange}
+                             className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                             placeholder="Name" 
+                           />
                         </div>
                         <div className="space-y-2">
                            <label className="text-xs uppercase tracking-widest text-gray-500">Stage Name / Handle</label>
-                           <input type="text" className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" placeholder="@handle" />
+                           <input 
+                             type="text" 
+                             name="handle"
+                             value={formData.handle}
+                             onChange={handleInputChange}
+                             className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                             placeholder="@handle" 
+                           />
                         </div>
                      </div>
 
                      <div className="space-y-2">
                         <label className="text-xs uppercase tracking-widest text-gray-500">Email Address</label>
-                        <input type="email" className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" placeholder="email@address.com" />
+                        <input 
+                          type="email" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                          placeholder="email@address.com" 
+                        />
                      </div>
 
                      <div className="space-y-2">
                         <label className="text-xs uppercase tracking-widest text-gray-500">Primary Discipline</label>
-                        <select className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none">
+                        <select 
+                          name="discipline"
+                          value={formData.discipline}
+                          onChange={handleInputChange}
+                          className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
+                        >
                            <option>Musician / Vocalist</option>
                            <option>Visual Artist</option>
                            <option>DJ / Producer</option>
@@ -376,9 +433,8 @@ const SuaveSponsorship = () => {
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-widest mb-6 text-gray-500">Socials</h4>
                 <ul className="space-y-4 text-sm">
-                  <li><a href="#" className="hover:text-pink-500 transition-colors">Instagram</a></li>
+                  <li><a href="https://www.instagram.com/suavexcollective/" className="hover:text-pink-500 transition-colors" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                   <li><a href="#" className="hover:text-pink-500 transition-colors">LinkedIn</a></li>
-                  <li><a href="#" className="hover:text-pink-500 transition-colors">Spotify</a></li>
                 </ul>
               </div>
               <div>
