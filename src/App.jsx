@@ -13,8 +13,6 @@ import {
   X,
   ChevronDown
 } from 'lucide-react';
-import logo from './logo.png';
-import profile from './profile1.jpg';
 const SuaveSponsorship = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('corporate'); // 'corporate' or 'community'
