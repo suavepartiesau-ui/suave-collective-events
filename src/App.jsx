@@ -49,42 +49,6 @@ const SuaveSponsorship = () => {
     }
   };
 
-  const opportunities = [
-    {
-      title: 'Hyper-Targeted Activation',
-      desc: 'Direct access to high-net-worth individuals and cultural tastemakers in an environment they trust.',
-      icon: Zap
-    },
-    {
-      title: 'Content & Digital dominance',
-      desc: 'Your brand woven into our cinematic recap reels and viral social campaigns.',
-      icon: TrendingUp
-    },
-    {
-      title: 'VIP Hospitality & Networking',
-      desc: 'Exclusive tables and backstage access for your key stakeholders and clients.',
-      icon: Award
-    }
-  ];
-
-  const communityPillars = [
-    {
-      title: 'Artist Development',
-      desc: 'Providing platforms for local talent to share stages with international headliners.',
-      icon: Music
-    },
-    {
-      title: 'Youth Pathways',
-      desc: 'Mentorship and stage time for emerging talent pipelines.',
-      icon: Users
-    },
-    {
-      title: 'Cultural Accessibility',
-      desc: 'Subsidized tickets ensuring art remains accessible to everyone.',
-      icon: Globe
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-pink-500 selection:text-white">
 
@@ -94,6 +58,7 @@ const SuaveSponsorship = () => {
 
           {/* Logo Integration */}
           <div className="flex items-center space-x-4">
+             {/* Fixed Logo Section */}
              <div className="h-10 w-10">
                 <img 
                     src="/logo.png" 
@@ -232,26 +197,6 @@ const SuaveSponsorship = () => {
              </div>
           </div>
         </div>
-      </section>
-
-      {/* The Offering */}
-      <section className="py-32 px-6">
-         <div className="max-w-7xl mx-auto">
-            <div className="mb-20 border-l-2 border-pink-500 pl-6">
-               <span className="text-xs font-bold tracking-[0.3em] uppercase text-zinc-500 mb-4 block">The Partnership</span>
-               <h2 className="text-5xl font-serif">How we dominate.</h2>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-               {(activeTab === 'corporate' ? opportunities : communityPillars).map((opp, i) => (
-                  <div key={i} className="group p-8 border border-white/10 hover:border-pink-500/50 transition-all duration-500">
-                     <opp.icon className="w-8 h-8 text-zinc-600 group-hover:text-pink-500 mb-6 transition-colors" />
-                     <h3 className="text-xl font-serif mb-4">{opp.title}</h3>
-                     <p className="text-sm text-gray-400 leading-relaxed">{opp.desc}</p>
-                  </div>
-               ))}
-            </div>
-         </div>
       </section>
 
       {/* Footer */}
