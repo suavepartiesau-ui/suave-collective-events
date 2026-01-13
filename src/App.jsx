@@ -133,7 +133,7 @@ const SuaveSponsorship = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-48 pb-20 border-b border-white/10">
+      <section className="relative pt-44 md:pt-60 pb-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div className="max-w-3xl">
@@ -324,7 +324,7 @@ const SuaveSponsorship = () => {
           
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
              <p>© 2026 The Suave Collective.</p>
-             <p>Designed in South Australia.</p>
+             <p>Designed lovingly in South Australia, created consciously and developed with due diligence for Artists, Performers and Corporate Sponsors.</p>
           </div>
         </div>
       </footer>
