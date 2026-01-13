@@ -90,16 +90,16 @@ const SuaveSponsorship = () => {
       <nav className={`fixed w-full z-50 transition-all duration-500 border-b border-white/10 ${scrolled ? 'bg-black py-4' : 'bg-black/90 backdrop-blur-sm py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           
-          {/* Logo Integration */}
+          {/* Logo Integration - FIXED SIZE */}
           <div className="flex items-center space-x-4">
-            <div className="h-8 w-8 md:h-10 md:w-10 overflow-hidden">
+            <div className="h-14 w-14 md:h-20 md:w-20 overflow-hidden"> 
                <img 
-                 src="https://framerusercontent.com/images/kL722ZkRj5xJ5X3wYqj3X9U.png" 
+                 src="/logo.png" 
                  alt="Suave Collective Logo" 
                  className="h-full w-full object-contain invert brightness-0 invert" 
                />
             </div>
-            <span className="font-serif text-xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
+            <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
 
           {/* Desktop Links - Minimalist */}
@@ -163,10 +163,10 @@ const SuaveSponsorship = () => {
       {/* LEADERSHIP / ABOUT SECTION - Integrated with Photo */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column */}
+            {/* Image Column - FIXED PROFILE PHOTO */}
             <div className="relative h-[600px] md:h-auto w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                <img 
-                 src="https://framerusercontent.com/images/1zYq5E2TzYQZg3vQZ5Q3.jpg" // Using 1000022607.jpg equivalent
+                 src="/profile1.jpg" 
                  alt="Director Portrait" 
                  className="absolute inset-0 w-full h-full object-cover"
                />
@@ -195,7 +195,7 @@ const SuaveSponsorship = () => {
                </div>
                <div className="mt-12">
                   <img 
-                     src="https://framerusercontent.com/images/kL722ZkRj5xJ5X3wYqj3X9U.png" 
+                     src="/logo.png" 
                      alt="Signature Logo"
                      className="h-12 opacity-50 invert brightness-0 invert"
                   />
