@@ -40,12 +40,12 @@ const SuaveSponsorship = () => {
       benefits: [
         {
           title: 'Hyper-Targeted Activation',
-          desc: 'Bespoke, global activations that force engagement and drive social sharing.',
+          desc: 'Bespoke, global activations that force engagement and drive social collaboration.',
           icon: Zap
         },
         {
           title: 'Executive Hospitality',
-          desc: 'The best deal-closing environment is the VIP section at a sold-out show.',
+          desc: 'The ideal deal-closing environment is the VIP section at a sold-out show.',
           icon: Briefcase
         },
         {
@@ -57,12 +57,12 @@ const SuaveSponsorship = () => {
     },
     community: {
       headline: "Community Impact",
-      subhead: "Directly fund the artists, spaces, and voices that make arts and entertainment vibrant.",
+      subhead: "Directly fund the artists, spaces, and voices that make the arts and entertainment sector vibrant.",
       stats: [
         { number: '$250k', label: 'Direct Artist Grants' },
         { number: '150+', label: 'Local Jobs Created' },
         { number: '85%', label: 'Diverse Talent Representation' },
-        { number: 'Free', label: 'Public Workshops' }
+        { number: 'Free', label: 'Brand Strategy and Finance Workshops' }
       ],
       benefits: [
         {
@@ -181,7 +181,7 @@ const SuaveSponsorship = () => {
                </h2>
                <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                   <p>
-                     The Suave Collective was born from a refusal to accept that great needs to be exchanged for good. In a city teeming with potential, we saw a gap between raw talent and world-class execution.
+                     The Suave Collective was born from a refusal to accept that great needs to be sacrificed for being just good. In a city teeming with potential, we saw a gap between raw talent and world-class execution.
                   </p>
                   <p>
                      We operate at the intersection of nightlife, corporate precision, and artistic chaos. Our mission is simple: to build platforms where brands don't just advertise—they become part of the cultural fabric.
