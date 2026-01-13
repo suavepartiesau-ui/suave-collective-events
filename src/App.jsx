@@ -93,9 +93,7 @@ const SuaveSponsorship = () => {
           {/* Logo Integration */}
           <div className="flex items-center space-x-4">
             <div className="h-8 w-8 md:h-10 md:w-10 overflow-hidden">
-               <img 
-                 src="https://framerusercontent.com/images/kL722ZkRj5xJ5X3wYqj3X9U.png" 
-                 alt="Suave Collective Logo" 
+<div className="h-full w-full bg-white rounded-full"></div> 
                  className="h-full w-full object-contain invert brightness-0 invert" 
                />
             </div>
