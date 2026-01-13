@@ -29,22 +29,22 @@ const SuaveSponsorship = () => {
   const content = {
     corporate: {
       headline: "Corporate Dominance",
-      subhead: "Stop buying logo placements. Start building cultural capital.",
+      subhead: "No need to buy individual e-commerce real-estate online. Start building cultural capital together today & monetise at scale.",
       stats: [
-        { number: '350%', label: 'Return on Investment' },
-        { number: '5.6M', label: 'Total Audience Reach' },
-        { number: '12k', label: 'VIP Guests Hosted' },
-        { number: '45+', label: 'Brand Activations' }
+        { number: '10x your time', label: 'Return on Investment' },
+        { number: 'Aim high - 100B views or bust', label: 'Total Audience Reach' },
+        { number: '1000-5000', label: 'VIP Guests Hosted' },
+        { number: '100+', label: 'Brand Activations' }
       ],
       benefits: [
         {
           title: 'Hyper-Targeted Activation',
-          desc: 'Bespoke, on-ground activations that force engagement and drive social sharing.',
+          desc: 'Bespoke, on-ground activations that force engagement and drive social collaboration through views, content curation and monetisation.',
           icon: Zap
         },
         {
           title: 'Executive Hospitality',
-          desc: 'The best deal-closing environment is a VIP booth at a sold-out show.',
+          desc: 'The best deal-closing environment is with networkers/socialisers/brand advocates at a sold-out show.',
           icon: Briefcase
         },
         {
@@ -56,17 +56,17 @@ const SuaveSponsorship = () => {
     },
     community: {
       headline: "Community Impact",
-      subhead: "Directly fund the artists, spaces, and voices that make this city vibrant.",
+      subhead: "Directly fund the artists, spaces, and voices that make the world of entertainment and corporate events virbant.",
       stats: [
-        { number: '$250k', label: 'Direct Artist Grants' },
-        { number: '150+', label: 'Local Jobs Created' },
-        { number: '85%', label: 'Diverse Talent Rep' },
-        { number: 'Free', label: 'Public Workshops' }
+        { number: '$250k', label: 'Direct Artist and Support Staff Grants' },
+        { number: '150+', label: 'Local Jobs Created. Get International Career Capable' },
+        { number: '85%', label: 'Diverse Talent Representation' },
+        { number: 'Complimentary for Unique Individuals', label: 'Public E-Commerce & Financial Strategy Workshops' }
       ],
       benefits: [
         {
           title: 'Direct Artist Support',
-          desc: 'Commissioning new works and paying artists fair wages.',
+          desc: 'Commissioning new physical/digital/phygital works and paying artists fair wages.',
           icon: Music
         },
         {
@@ -76,7 +76,7 @@ const SuaveSponsorship = () => {
         },
         {
           title: 'Cultural Accessibility',
-          desc: 'Subsidized tickets ensuring art remains accessible to everyone.',
+          desc: 'Subsidised tickets ensuring art remains accessible to everyone.',
           icon: Globe
         }
       ]
@@ -90,21 +90,20 @@ const SuaveSponsorship = () => {
       <nav className={`fixed w-full z-50 transition-all duration-500 border-b border-white/10 ${scrolled ? 'bg-black py-4' : 'bg-black/90 backdrop-blur-sm py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           
-          {/* Logo Integration - FIXED SIZE */}
-          <div className="flex items-center space-x-4">
-            <div className="h-14 w-14 md:h-20 md:w-20 overflow-hidden"> 
-               <img 
-                 src="/logo.png" 
-                 alt="Suave Collective Logo" 
-                 className="h-full w-full object-contain invert brightness-0 invert" 
-               />
-            </div>
-            <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
+          {/* Logo Integration - CLEAN & VISIBLE */}
+          <div className="flex items-center gap-4">
+             {/* Simple, unrestricted image container */}
+             <img 
+               src="/logo.png" 
+               alt="Suave Collective Logo" 
+               className="h-12 md:h-16 w-auto object-contain" 
+             />
+             <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
 
-          {/* Desktop Links - Minimalist */}
+          {/* Desktop Links - Minimalist (Manifesto Removed) */}
           <div className="hidden md:flex items-center space-x-12">
-            {['Manifesto', 'Events', 'Talent'].map((item) => (
+            {['Events', 'Talent'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
                 {item}
               </a>
@@ -124,7 +123,7 @@ const SuaveSponsorship = () => {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black pt-28 px-6 md:hidden animate-in slide-in-from-top-10">
           <div className="flex flex-col space-y-8">
-            {['Manifesto', 'Events', 'Talent', 'Partner Access'].map((item) => (
+            {['Events', 'Talent', 'Partner Access'].map((item) => (
               <a key={item} href="#" className="text-3xl font-serif text-white border-b border-white/10 pb-4">
                 {item}
               </a>
@@ -133,7 +132,7 @@ const SuaveSponsorship = () => {
         </div>
       )}
 
-      {/* Hero Section - "The Showroom" Style */}
+      {/* Hero Section */}
       <section className="relative pt-32 md:pt-48 pb-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
@@ -163,12 +162,12 @@ const SuaveSponsorship = () => {
       {/* LEADERSHIP / ABOUT SECTION - Integrated with Photo */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column - FIXED PROFILE PHOTO */}
+            {/* Image Column - HEAD CUT OFF FIX */}
             <div className="relative h-[600px] md:h-auto w-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                <img 
                  src="/profile1.jpg" 
                  alt="Director Portrait" 
-                 className="absolute inset-0 w-full h-full object-cover"
+                 className="absolute inset-0 w-full h-full object-cover object-top" 
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
                <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12">
@@ -184,27 +183,27 @@ const SuaveSponsorship = () => {
                </h2>
                <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                   <p>
-                     The Suave Collective was born from a refusal to accept the mediocre. In a city teeming with potential, we saw a gap between raw talent and world-class execution.
+                     The Suave Collective was born from the belief that good and average are the enemies of great. In a world eeming with potential, our Founding Managing Partner saw a gap between raw talent and world-class execution.
                   </p>
                   <p>
                      We operate at the intersection of nightlife, corporate precision, and artistic chaos. Our mission is simple: to build platforms where brands don't just advertise—they become part of the cultural fabric.
                   </p>
                   <p>
-                     When you partner with us, you aren't hiring an agency. You are joining a movement that is reshaping the identity of South Australia.
+                     When you partner with us, you are contracting into a cultural movement defined by passion, success and motivation. You are joining a movement that is reshaping the identity of Australia, and the international community.
                   </p>
                </div>
                <div className="mt-12">
                   <img 
                      src="/logo.png" 
                      alt="Signature Logo"
-                     className="h-12 opacity-50 invert brightness-0 invert"
+                     className="h-16 object-contain opacity-80"
                   />
                </div>
             </div>
          </div>
       </section>
 
-      {/* Tabbed Interface - Mercedes Style Slimline */}
+      {/* Tabbed Interface */}
       <section className="sticky top-20 z-40 bg-black/95 backdrop-blur border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex space-x-8 overflow-x-auto no-scrollbar">
@@ -224,17 +223,15 @@ const SuaveSponsorship = () => {
         </div>
       </section>
 
-      {/* Dynamic Content - Vertical Stack Layout */}
+      {/* Dynamic Content */}
       <section className="min-h-screen bg-black">
         <div className="max-w-7xl mx-auto px-6 py-20 animate-in fade-in duration-700 key={activeTab}">
           
-          {/* Header */}
           <div className="mb-20">
             <h2 className="text-4xl md:text-6xl font-serif mb-6">{content[activeTab].headline}</h2>
             <p className="text-xl text-gray-400 max-w-2xl">{content[activeTab].subhead}</p>
           </div>
 
-          {/* Stats Row - Slimline */}
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10">
             {content[activeTab].stats.map((stat, idx) => (
               <div key={idx} className="py-10 border-b border-white/10 md:border-b-0 md:border-r border-white/10 md:last:border-r-0 pr-6">
@@ -244,7 +241,6 @@ const SuaveSponsorship = () => {
             ))}
           </div>
 
-          {/* Feature List - The "Option Selection" Look */}
           <div className="mt-20 border-t border-white/10">
             {content[activeTab].benefits.map((benefit, idx) => {
               const Icon = benefit.icon;
@@ -269,7 +265,6 @@ const SuaveSponsorship = () => {
             })}
           </div>
 
-          {/* Large Visual Break / CTA */}
           <div className="mt-20 relative h-[400px] w-full overflow-hidden group cursor-pointer">
              <div className={`absolute inset-0 bg-gradient-to-r ${activeTab === 'corporate' ? 'from-pink-900/40 to-black' : 'from-amber-900/40 to-black'}`}></div>
              <div className="absolute inset-0 border border-white/10"></div>
@@ -300,7 +295,7 @@ const SuaveSponsorship = () => {
               <span className="font-serif text-2xl font-bold block mb-6">SUAVE.</span>
               <p className="text-xs text-gray-500 max-w-xs leading-relaxed">
                 Adelaide based. Globally connected.<br/>
-                We build culture, not just events.
+                We build dreams, not just events.
               </p>
             </div>
             
@@ -325,7 +320,7 @@ const SuaveSponsorship = () => {
           
           <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
              <p>© 2026 The Suave Collective.</p>
-             <p>Designed in South Australia.</p>
+             <p>Designed lovingly in South Australia, Created Lovingly in Australia and Developed Internationally through Collaboration</p>
           </div>
         </div>
       </footer>
