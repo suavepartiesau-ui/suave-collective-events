@@ -41,7 +41,7 @@ const SuaveSponsorship = () => {
       name: "Clara Eka", 
       role: "Community Manager", 
       bio: "Expert in grassroots movements and digital community building.", 
-      image: "/clara.jpg" 
+      image: "/clara.png" 
     }
   ];
 
