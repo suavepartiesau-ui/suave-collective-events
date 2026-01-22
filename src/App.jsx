@@ -235,7 +235,7 @@ const SuaveSponsorship = () => {
                <img 
                  src="/profile1.jpg" 
                  alt="Rahul Reddy - Creative Managing Partner" 
-                 className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
+                 className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-700 group-hover:scale-105" 
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
                
@@ -413,6 +413,105 @@ const SuaveSponsorship = () => {
           </div>
 
         </div>
+      </section>
+
+      {/* NEW TALENT REGISTRATION SECTION */}
+      <section id="talent" className="py-32 border-b border-white/10 relative overflow-hidden bg-zinc-950">
+         <div className="absolute top-0 right-0 w-1/3 h-full bg-pink-900/10 blur-[100px] pointer-events-none"></div>
+         
+         <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+               
+               <div>
+                  <div className="inline-block mb-6">
+                     <span className="text-xs font-bold text-pink-500 tracking-[0.2em] uppercase border border-pink-500/30 px-3 py-1 rounded-sm">Join The Roster</span>
+                  </div>
+                  <h2 className="text-5xl md:text-7xl font-serif mb-6">Your stage is waiting.</h2>
+                  <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+                     We are constantly scouting for the unique, the bold, and the disciplined. If you are an artist, performer, or creative ready to scale, we want to hear from you.
+                  </p>
+                  
+                  <ul className="space-y-4 mb-8">
+                     <li className="flex items-center text-sm text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
+                        Access to paid commercial opportunities
+                     </li>
+                     <li className="flex items-center text-sm text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
+                        Professional development & mentorship
+                     </li>
+                     <li className="flex items-center text-sm text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
+                        Global network exposure
+                     </li>
+                  </ul>
+               </div>
+
+               {/* Talent Form UI */}
+               <div className="bg-zinc-900/50 border border-white/10 p-8 md:p-12 backdrop-blur-sm">
+                  <h3 className="text-2xl font-serif mb-8">Talent Application</h3>
+                  <form className="space-y-6" onSubmit={handleApply}>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                           <label className="text-xs uppercase tracking-widest text-gray-500">Full Name</label>
+                           <input 
+                             type="text" 
+                             name="name"
+                             value={formData.name}
+                             onChange={handleInputChange}
+                             className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                             placeholder="Name" 
+                           />
+                        </div>
+                        <div className="space-y-2">
+                           <label className="text-xs uppercase tracking-widest text-gray-500">Stage Name / Handle</label>
+                           <input 
+                             type="text" 
+                             name="handle"
+                             value={formData.handle}
+                             onChange={handleInputChange}
+                             className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                             placeholder="@handle" 
+                           />
+                        </div>
+                     </div>
+
+                     <div className="space-y-2">
+                        <label className="text-xs uppercase tracking-widest text-gray-500">Email Address</label>
+                        <input 
+                          type="email" 
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                          placeholder="email@address.com" 
+                        />
+                     </div>
+
+                     <div className="space-y-2">
+                        <label className="text-xs uppercase tracking-widest text-gray-500">Primary Discipline</label>
+                        <select 
+                          name="discipline"
+                          value={formData.discipline}
+                          onChange={handleInputChange}
+                          className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
+                        >
+                           <option>Musician / Vocalist</option>
+                           <option>Visual Artist</option>
+                           <option>DJ / Producer</option>
+                           <option>Dancer / Performer</option>
+                           <option>Other</option>
+                        </select>
+                     </div>
+
+                     <button className="w-full bg-white text-black font-bold uppercase tracking-[0.2em] py-5 hover:bg-pink-500 hover:text-white transition-all mt-4">
+                        Apply Now
+                     </button>
+                  </form>
+               </div>
+
+            </div>
+         </div>
       </section>
 
       {/* Footer - Minimalist */}
