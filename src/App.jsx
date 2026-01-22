@@ -229,8 +229,8 @@ const SuaveSponsorship = () => {
       {/* LEADERSHIP / FOUNDER SECTION */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column */}
-            <div className="relative h-[500px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center group">
+            {/* Image Column - FIX: Changed object-contain to object-cover and added object-top */}
+            <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center group">
                <img 
                  src="/profile1.jpg" 
                  alt="Rahul Reddy - Creative Managing Partner" 
@@ -286,10 +286,11 @@ const SuaveSponsorship = () => {
               <div key={idx} className="group relative border border-white/10 bg-zinc-900/30 overflow-hidden">
                 {/* Image Placeholder */}
                 <div className="h-[400px] w-full bg-zinc-800 relative overflow-hidden">
+                  {/* FIX: Added object-top class to prevent head cropping */}
                   <img 
                      src={member.image} 
                      alt={member.name}
-                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
                      onError={(e) => {
                        e.target.style.display = 'none'; 
                        e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'text-gray-600');
@@ -326,6 +327,90 @@ const SuaveSponsorship = () => {
               <span className="text-xs font-bold uppercase tracking-widest text-white border-b border-white pb-1 group-hover:border-pink-500 transition-colors">Apply Now</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Tabbed Interface */}
+      <section className="sticky top-0 md:top-0 z-30 bg-black/95 backdrop-blur border-b border-white/10 pt-4">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex space-x-8 overflow-x-auto no-scrollbar">
+            <button 
+              onClick={() => setActiveTab('corporate')}
+              className={`py-6 text-sm uppercase tracking-[0.15em] transition-all whitespace-nowrap ${activeTab === 'corporate' ? 'text-white border-b-2 border-pink-500' : 'text-gray-500 hover:text-gray-300'}`}
+            >
+              Corporate Strategy
+            </button>
+            <button 
+              onClick={() => setActiveTab('community')}
+              className={`py-6 text-sm uppercase tracking-[0.15em] transition-all whitespace-nowrap ${activeTab === 'community' ? 'text-white border-b-2 border-amber-500' : 'text-gray-500 hover:text-gray-300'}`}
+            >
+              Community Impact
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Dynamic Content */}
+      <section className="min-h-screen bg-black">
+        <div className="max-w-7xl mx-auto px-6 py-20 animate-in fade-in duration-700 key={activeTab}">
+          
+          <div className="mb-20">
+            <h2 className="text-4xl md:text-6xl font-serif mb-6">{content[activeTab].headline}</h2>
+            <p className="text-xl text-gray-400 max-w-2xl">{content[activeTab].subhead}</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10">
+            {content[activeTab].stats.map((stat, idx) => (
+              <div key={idx} className="py-10 border-b border-white/10 md:border-b-0 md:border-r border-white/10 md:last:border-r-0 pr-6">
+                <div className="text-3xl md:text-4xl font-light mb-2">{stat.number}</div>
+                <div className="text-xs uppercase tracking-widest text-gray-500">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-20 border-t border-white/10">
+            {content[activeTab].benefits.map((benefit, idx) => {
+              const Icon = benefit.icon;
+              return (
+                <div key={idx} className="group flex flex-col md:flex-row md:items-center py-12 border-b border-white/10 hover:bg-white/5 transition-colors cursor-pointer">
+                  <div className="md:w-1/4 mb-4 md:mb-0">
+                    <div className={`w-12 h-12 flex items-center justify-center border border-white/20 rounded-full ${activeTab === 'corporate' ? 'text-pink-500' : 'text-amber-500'}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <div className="md:w-1/2 mb-4 md:mb-0">
+                    <h3 className="text-2xl font-serif mb-2">{benefit.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed max-w-md">{benefit.desc}</p>
+                  </div>
+                  <div className="md:w-1/4 flex justify-end">
+                    <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                      <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-20 relative h-[400px] w-full overflow-hidden group cursor-pointer">
+             <div className={`absolute inset-0 bg-gradient-to-r ${activeTab === 'corporate' ? 'from-pink-900/40 to-black' : 'from-amber-900/40 to-black'}`}></div>
+             <div className="absolute inset-0 border border-white/10"></div>
+             
+             <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+               <div className="flex items-end justify-between">
+                 <div>
+                   <div className="text-xs uppercase tracking-widest mb-4 text-white/60">Next Steps</div>
+                   <h3 className="text-3xl md:text-5xl font-serif">
+                     {activeTab === 'corporate' ? 'Download Corporate Deck' : 'View Impact Report'}
+                   </h3>
+                 </div>
+                 <button className={`hidden md:flex px-8 py-3 border ${activeTab === 'corporate' ? 'border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white' : 'border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white'} text-xs font-bold uppercase tracking-[0.2em] transition-all`}>
+                   Access File
+                 </button>
+               </div>
+             </div>
+          </div>
+
         </div>
       </section>
 
