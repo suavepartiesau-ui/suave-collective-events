@@ -229,8 +229,8 @@ const SuaveSponsorship = () => {
       {/* LEADERSHIP / FOUNDER SECTION */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column - FIX: Changed object-contain to object-cover and added object-top */}
-            <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center group">
+            {/* Image Column - FIX: Changed object-contain to object-cover, added min-h, and kept object-top */}
+            <div className="relative h-[600px] md:h-full min-h-[500px] w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center group">
                <img 
                  src="/profile1.jpg" 
                  alt="Rahul Reddy - Creative Managing Partner" 
