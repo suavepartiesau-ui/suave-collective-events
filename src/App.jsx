@@ -155,7 +155,7 @@ const SuaveSponsorship = () => {
 
           {/* Desktop Links - Minimalist */}
           <div className="hidden md:flex items-center space-x-12">
-            {['Events', 'Talent'].map((item) => (
+            {['Home', 'Events', 'Talent'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
                 {item}
               </a>
@@ -178,7 +178,7 @@ const SuaveSponsorship = () => {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black pt-32 px-6 md:hidden animate-in slide-in-from-top-10 flex flex-col h-screen">
           <div className="flex flex-col space-y-8">
-            {['Events', 'Talent'].map((item) => (
+            {['Home', 'Events', 'Talent'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`} 
@@ -202,7 +202,7 @@ const SuaveSponsorship = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-40 md:pt-60 pb-20 border-b border-white/10">
+      <section id="home" className="relative pt-40 md:pt-60 pb-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div className="max-w-3xl">
@@ -241,7 +241,7 @@ const SuaveSponsorship = () => {
                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
                
                <div className="absolute bottom-12 w-full text-center z-10">
-                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-2">The Founder</div>
+                  <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-2">Managing Director</div>
                   <h3 className="text-3xl font-serif text-white">Rahul Reddy</h3>
                </div>
             </div>
@@ -253,15 +253,12 @@ const SuaveSponsorship = () => {
                </h2>
                <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                   <p>
-                     The Suave Collective was born with the ideology that good and average are the enemy of great. In a world teeming with potential, we saw a gap between raw talent and world-class execution.
-                  </p>
-                  <p>
-                     We operate at the intersection of nightlife, corporate precision, and artistic chaos. Our mission is simple: to build platforms where brands don't just advertise—they become part of the cultural fabric.
+                     A cultural entrepreneur who is both a patron of the arts and an artist in his own way who wants to see the success of those who dedicate their life and career to the pursuit of arts and entertaining others.
                   </p>
                </div>
                <div className="mt-12">
                   <img 
-                     src="/signature.jpg" 
+                     src="/signature.png" 
                      alt="Signature"
                      className="h-16 object-contain opacity-80"
                   />
@@ -490,20 +487,70 @@ const SuaveSponsorship = () => {
                      </div>
 
                      <div className="space-y-2">
-                        <label className="text-xs uppercase tracking-widest text-gray-500">Primary Discipline</label>
+                        <label className="text-xs uppercase tracking-widest text-gray-500">Role Category</label>
                         <select 
-                          name="discipline"
-                          value={formData.discipline}
+                          name="roleType"
+                          value={formData.roleType}
                           onChange={handleInputChange}
                           className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
                         >
-                           <option>Musician / Vocalist</option>
-                           <option>Visual Artist</option>
-                           <option>DJ / Producer</option>
-                           <option>Dancer / Performer</option>
-                           <option>Other</option>
+                          <option>Event Management</option>
+                          <option>Creative Production</option>
+                          <option>Marketing & Socials</option>
+                          <option>Administration</option>
+                          <option>Internship</option>
                         </select>
-                     </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-xs uppercase tracking-widest text-gray-500">Specific Role Interest</label>
+                        <select 
+                          name="specificRole"
+                          value={formData.specificRole}
+                          onChange={handleInputChange}
+                          className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
+                        >
+                          {formData.roleType === 'Event Management' && (
+                            <>
+                              <option>Event Manager</option>
+                              <option>Event Coordinator</option>
+                              <option>Venue Liaison</option>
+                              <option>Logistics Manager</option>
+                            </>
+                          )}
+                          {formData.roleType === 'Creative Production' && (
+                            <>
+                              <option>Creative Director</option>
+                              <option>Content Creator (Photo/Video)</option>
+                              <option>Graphic Designer</option>
+                              <option>Lighting/Sound Tech</option>
+                            </>
+                          )}
+                          {formData.roleType === 'Marketing & Socials' && (
+                            <>
+                              <option>Social Media Manager</option>
+                              <option>Marketing Specialist</option>
+                              <option>Community Manager</option>
+                              <option>PR Representative</option>
+                            </>
+                          )}
+                          {formData.roleType === 'Administration' && (
+                            <>
+                              <option>Executive Assistant</option>
+                              <option>Operations Assistant</option>
+                              <option>Bookkeeper</option>
+                            </>
+                          )}
+                          {formData.roleType === 'Internship' && (
+                            <>
+                              <option>Event Intern</option>
+                              <option>Marketing Intern</option>
+                              <option>Creative Intern</option>
+                              <option>General Operations Intern</option>
+                            </>
+                          )}
+                        </select>
+                      </div>
 
                      <button className="w-full bg-white text-black font-bold uppercase tracking-[0.2em] py-5 hover:bg-pink-500 hover:text-white transition-all mt-4">
                         Apply Now
