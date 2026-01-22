@@ -30,20 +30,18 @@ const SuaveSponsorship = () => {
   });
 
   // NEW: Team Members Data 
-  // FIX: Using the EXACT filenames from your upload list. 
-  // Check your public folder: Do you have "logo.jpg" or "logo.png"? 
   const teamMembers = [
     {
       name: "Carlito Luaton", 
       role: "Head of Operations", 
       bio: "Ensuring the vision is executed with military precision and fluid style.", 
-      image: "/carlito.jpg" // Matches your uploaded file EXACTLY (check for that space!)
+      image: "/carlito.jpg" 
     },
     {
       name: "Clara Eka", 
       role: "Community Manager", 
       bio: "Expert in grassroots movements and digital community building.", 
-      image: "/clara.jpg" // Matches your uploaded file EXACTLY
+      image: "/clara.jpg" 
     }
   ];
 
@@ -140,12 +138,15 @@ const SuaveSponsorship = () => {
           
           {/* Logo Integration */}
           <div className="flex items-center gap-6">
-             {/* FIX: Reverted to Original Size (h-24/h-32) and using logo.jpg based on upload */}
-             {/* CHECK: If this is still broken, try changing ".jpg" to ".png" */}
+             {/* FIX: Switched to .png as per latest instruction */}
              <img 
                src="/logo.png" 
                alt="Suave Collective Logo" 
-               className="h-24 md:h-32 w-auto object-contain" 
+               className="h-24 md:h-32 w-auto object-contain"
+               onError={(e) => {
+                 e.target.style.display = 'none'; // Hide if broken
+                 console.log("Logo failed to load: check if logo.png exists in public/");
+               }}
              />
              <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
@@ -326,189 +327,6 @@ const SuaveSponsorship = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Tabbed Interface */}
-      <section className="sticky top-0 md:top-0 z-30 bg-black/95 backdrop-blur border-b border-white/10 pt-4">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex space-x-8 overflow-x-auto no-scrollbar">
-            <button 
-              onClick={() => setActiveTab('corporate')}
-              className={`py-6 text-sm uppercase tracking-[0.15em] transition-all whitespace-nowrap ${activeTab === 'corporate' ? 'text-white border-b-2 border-pink-500' : 'text-gray-500 hover:text-gray-300'}`}
-            >
-              Corporate Strategy
-            </button>
-            <button 
-              onClick={() => setActiveTab('community')}
-              className={`py-6 text-sm uppercase tracking-[0.15em] transition-all whitespace-nowrap ${activeTab === 'community' ? 'text-white border-b-2 border-amber-500' : 'text-gray-500 hover:text-gray-300'}`}
-            >
-              Community Impact
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Dynamic Content */}
-      <section className="min-h-screen bg-black">
-        <div className="max-w-7xl mx-auto px-6 py-20 animate-in fade-in duration-700 key={activeTab}">
-          
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-6xl font-serif mb-6">{content[activeTab].headline}</h2>
-            <p className="text-xl text-gray-400 max-w-2xl">{content[activeTab].subhead}</p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10">
-            {content[activeTab].stats.map((stat, idx) => (
-              <div key={idx} className="py-10 border-b border-white/10 md:border-b-0 md:border-r border-white/10 md:last:border-r-0 pr-6">
-                <div className="text-3xl md:text-4xl font-light mb-2">{stat.number}</div>
-                <div className="text-xs uppercase tracking-widest text-gray-500">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-20 border-t border-white/10">
-            {content[activeTab].benefits.map((benefit, idx) => {
-              const Icon = benefit.icon;
-              return (
-                <div key={idx} className="group flex flex-col md:flex-row md:items-center py-12 border-b border-white/10 hover:bg-white/5 transition-colors cursor-pointer">
-                  <div className="md:w-1/4 mb-4 md:mb-0">
-                    <div className={`w-12 h-12 flex items-center justify-center border border-white/20 rounded-full ${activeTab === 'corporate' ? 'text-pink-500' : 'text-amber-500'}`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                  </div>
-                  <div className="md:w-1/2 mb-4 md:mb-0">
-                    <h3 className="text-2xl font-serif mb-2">{benefit.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed max-w-md">{benefit.desc}</p>
-                  </div>
-                  <div className="md:w-1/4 flex justify-end">
-                    <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                      <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-20 relative h-[400px] w-full overflow-hidden group cursor-pointer">
-             <div className={`absolute inset-0 bg-gradient-to-r ${activeTab === 'corporate' ? 'from-pink-900/40 to-black' : 'from-amber-900/40 to-black'}`}></div>
-             <div className="absolute inset-0 border border-white/10"></div>
-             
-             <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
-               <div className="flex items-end justify-between">
-                 <div>
-                   <div className="text-xs uppercase tracking-widest mb-4 text-white/60">Next Steps</div>
-                   <h3 className="text-3xl md:text-5xl font-serif">
-                     {activeTab === 'corporate' ? 'Download Corporate Deck' : 'View Impact Report'}
-                   </h3>
-                 </div>
-                 <button className={`hidden md:flex px-8 py-3 border ${activeTab === 'corporate' ? 'border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white' : 'border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white'} text-xs font-bold uppercase tracking-[0.2em] transition-all`}>
-                   Access File
-                 </button>
-               </div>
-             </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* NEW TALENT REGISTRATION SECTION */}
-      <section id="talent" className="py-32 border-b border-white/10 relative overflow-hidden bg-zinc-950">
-         <div className="absolute top-0 right-0 w-1/3 h-full bg-pink-900/10 blur-[100px] pointer-events-none"></div>
-         
-         <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-               
-               <div>
-                  <div className="inline-block mb-6">
-                     <span className="text-xs font-bold text-pink-500 tracking-[0.2em] uppercase border border-pink-500/30 px-3 py-1 rounded-sm">Join The Roster</span>
-                  </div>
-                  <h2 className="text-5xl md:text-7xl font-serif mb-6">Your stage is waiting.</h2>
-                  <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                     We are constantly scouting for the unique, the bold, and the disciplined. If you are an artist, performer, or creative ready to scale, we want to hear from you.
-                  </p>
-                  
-                  <ul className="space-y-4 mb-8">
-                     <li className="flex items-center text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
-                        Access to paid commercial opportunities
-                     </li>
-                     <li className="flex items-center text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
-                        Professional development & mentorship
-                     </li>
-                     <li className="flex items-center text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-4"></div>
-                        Global network exposure
-                     </li>
-                  </ul>
-               </div>
-
-               {/* Talent Form UI */}
-               <div className="bg-zinc-900/50 border border-white/10 p-8 md:p-12 backdrop-blur-sm">
-                  <h3 className="text-2xl font-serif mb-8">Talent Application</h3>
-                  <form className="space-y-6" onSubmit={handleApply}>
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                           <label className="text-xs uppercase tracking-widest text-gray-500">Full Name</label>
-                           <input 
-                             type="text" 
-                             name="name"
-                             value={formData.name}
-                             onChange={handleInputChange}
-                             className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
-                             placeholder="Name" 
-                           />
-                        </div>
-                        <div className="space-y-2">
-                           <label className="text-xs uppercase tracking-widest text-gray-500">Stage Name / Handle</label>
-                           <input 
-                             type="text" 
-                             name="handle"
-                             value={formData.handle}
-                             onChange={handleInputChange}
-                             className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
-                             placeholder="@handle" 
-                           />
-                        </div>
-                     </div>
-
-                     <div className="space-y-2">
-                        <label className="text-xs uppercase tracking-widest text-gray-500">Email Address</label>
-                        <input 
-                          type="email" 
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
-                          placeholder="email@address.com" 
-                        />
-                     </div>
-
-                     <div className="space-y-2">
-                        <label className="text-xs uppercase tracking-widest text-gray-500">Primary Discipline</label>
-                        <select 
-                          name="discipline"
-                          value={formData.discipline}
-                          onChange={handleInputChange}
-                          className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
-                        >
-                           <option>Musician / Vocalist</option>
-                           <option>Visual Artist</option>
-                           <option>DJ / Producer</option>
-                           <option>Dancer / Performer</option>
-                           <option>Other</option>
-                        </select>
-                     </div>
-
-                     <button className="w-full bg-white text-black font-bold uppercase tracking-[0.2em] py-5 hover:bg-pink-500 hover:text-white transition-all mt-4">
-                        Apply Now
-                     </button>
-                  </form>
-               </div>
-
-            </div>
-         </div>
       </section>
 
       {/* Footer - Minimalist */}
