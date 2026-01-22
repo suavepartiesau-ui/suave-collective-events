@@ -27,7 +27,8 @@ const SuaveSponsorship = () => {
     name: '',
     handle: '',
     email: '',
-    discipline: 'Musician / Vocalist'
+    roleType: 'Event Management', // Default role category
+    specificRole: 'Event Manager' // Default specific role
   });
 
   // NEW: Team Members Data 
@@ -64,8 +65,8 @@ const SuaveSponsorship = () => {
   // Handle Form Submission (Mailto)
   const handleApply = (e) => {
     e.preventDefault();
-    const subject = `Talent Application: ${formData.name}`;
-    const body = `Name: ${formData.name}\nHandle: ${formData.handle}\nEmail: ${formData.email}\nPrimary Discipline: ${formData.discipline}`;
+    const subject = `Role Application: ${formData.specificRole} - ${formData.name}`;
+    const body = `Name: ${formData.name}\nHandle/Portfolio: ${formData.handle}\nEmail: ${formData.email}\nRole Type: ${formData.roleType}\nSpecific Role: ${formData.specificRole}`;
     
     // Open email client with pre-filled data
     window.location.href = `mailto:suaveparties.au@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -605,8 +606,8 @@ const SuaveSponsorship = () => {
             </button>
 
             <div className="mb-8">
-              <h3 className="text-2xl md:text-3xl font-serif mb-2 text-white">Join Our Talent Roster</h3>
-              <p className="text-gray-400">If you are an artist, performer, or creative ready to scale, we want to hear from you.</p>
+              <h3 className="text-2xl md:text-3xl font-serif mb-2 text-white">Join Our Team</h3>
+              <p className="text-gray-400">If you are a manager, creative, or intern ready to grow with us, we want to hear from you.</p>
             </div>
 
             <form className="space-y-6" onSubmit={handleApply}>
@@ -623,14 +624,14 @@ const SuaveSponsorship = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs uppercase tracking-widest text-gray-500">Stage Name / Handle</label>
+                  <label className="text-xs uppercase tracking-widest text-gray-500">Social Handle / Portfolio</label>
                   <input 
                     type="text" 
                     name="handle"
                     value={formData.handle}
                     onChange={handleInputChange}
                     className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
-                    placeholder="@handle" 
+                    placeholder="@handle or URL" 
                   />
                 </div>
               </div>
@@ -648,18 +649,68 @@ const SuaveSponsorship = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-gray-500">Primary Discipline</label>
+                <label className="text-xs uppercase tracking-widest text-gray-500">Role Category</label>
                 <select 
-                  name="discipline"
-                  value={formData.discipline}
+                  name="roleType"
+                  value={formData.roleType}
                   onChange={handleInputChange}
                   className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
                 >
-                  <option>Musician / Vocalist</option>
-                  <option>Visual Artist</option>
-                  <option>DJ / Producer</option>
-                  <option>Dancer / Performer</option>
-                  <option>Other</option>
+                  <option>Event Management</option>
+                  <option>Creative Production</option>
+                  <option>Marketing & Socials</option>
+                  <option>Administration</option>
+                  <option>Internship</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-gray-500">Specific Role Interest</label>
+                <select 
+                  name="specificRole"
+                  value={formData.specificRole}
+                  onChange={handleInputChange}
+                  className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
+                >
+                  {formData.roleType === 'Event Management' && (
+                    <>
+                      <option>Event Manager</option>
+                      <option>Event Coordinator</option>
+                      <option>Venue Liaison</option>
+                      <option>Logistics Manager</option>
+                    </>
+                  )}
+                  {formData.roleType === 'Creative Production' && (
+                    <>
+                      <option>Creative Director</option>
+                      <option>Content Creator (Photo/Video)</option>
+                      <option>Graphic Designer</option>
+                      <option>Lighting/Sound Tech</option>
+                    </>
+                  )}
+                  {formData.roleType === 'Marketing & Socials' && (
+                    <>
+                      <option>Social Media Manager</option>
+                      <option>Marketing Specialist</option>
+                      <option>Community Manager</option>
+                      <option>PR Representative</option>
+                    </>
+                  )}
+                  {formData.roleType === 'Administration' && (
+                    <>
+                      <option>Executive Assistant</option>
+                      <option>Operations Assistant</option>
+                      <option>Bookkeeper</option>
+                    </>
+                  )}
+                  {formData.roleType === 'Internship' && (
+                    <>
+                      <option>Event Intern</option>
+                      <option>Marketing Intern</option>
+                      <option>Creative Intern</option>
+                      <option>General Operations Intern</option>
+                    </>
+                  )}
                 </select>
               </div>
 
