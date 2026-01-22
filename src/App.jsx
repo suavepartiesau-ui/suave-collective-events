@@ -17,9 +17,10 @@ import {
 
 const SuaveSponsorship = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState('corporate'); // 'corporate' or 'community'
+  const [activeTab, setActiveTab] = useState('corporate');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
+  const [talentModalOpen, setTalentModalOpen] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -66,7 +67,6 @@ const SuaveSponsorship = () => {
     const subject = `Talent Application: ${formData.name}`;
     const body = `Name: ${formData.name}\nHandle: ${formData.handle}\nEmail: ${formData.email}\nPrimary Discipline: ${formData.discipline}`;
     
-    // Open email client with pre-filled data
     window.location.href = `mailto:suaveparties.au@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -267,7 +267,7 @@ const SuaveSponsorship = () => {
       </section>
 
       {/* TEAM SECTION */}
-      <section className="py-16 md:py-24 bg-black border-b border-white/10 overflow-x-hidden">
+      <section className="py-16 md:py-24 bg-black border-b border-white/10 overflow-x-hidden" id="talent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-6">
             <div>
@@ -315,7 +315,10 @@ const SuaveSponsorship = () => {
             ))}
             
             {/* Join Us Card */}
-            <div className="border border-dashed border-white/20 flex flex-col items-center justify-center p-8 text-center min-h-[400px] hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => window.location.href='mailto:suaveparties.au@gmail.com'}>
+            <div 
+              className="border border-dashed border-white/20 flex flex-col items-center justify-center p-8 text-center min-h-[400px] hover:bg-white/5 transition-colors group cursor-pointer" 
+              onClick={() => setTalentModalOpen(true)}
+            >
               <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 text-gray-500 group-hover:text-pink-500 group-hover:border-pink-500 transition-all">
                 <Users size={24} />
               </div>
@@ -451,15 +454,12 @@ const SuaveSponsorship = () => {
       {/* Partner Access Modal */}
       {partnerModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 overflow-y-auto">
-          {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black/90 backdrop-blur-sm"
             onClick={() => setPartnerModalOpen(false)}
           ></div>
           
-          {/* Modal Content */}
           <div className="relative bg-zinc-950 border border-white/10 p-6 md:p-8 lg:p-12 max-w-lg w-full shadow-2xl animate-in zoom-in-50 duration-300 my-auto max-h-[90vh] overflow-y-auto">
-            {/* Close Button */}
             <button 
               onClick={() => setPartnerModalOpen(false)}
               className="absolute top-4 right-4 text-zinc-500 hover:text-white z-10"
@@ -485,8 +485,21 @@ const SuaveSponsorship = () => {
         </div>
       )}
 
-    </div>
-  );
-};
+      {/* TALENT APPLICATION MODAL */}
+      {talentModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 overflow-y-auto">
+          <div 
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+            onClick={() => setTalentModalOpen(false)}
+          ></div>
+          
+          <div className="relative bg-zinc-950 border border-white/10 p-6 md:p-8 lg:p-12 max-w-2xl w-full shadow-2xl animate-in zoom-in-50 duration-300 my-auto max-h-[90vh] overflow-y-auto">
+            <button 
+              onClick={() => setTalentModalOpen(false)}
+              className="absolute top-4 right-4 text-zinc-500 hover:text-white z-10"
+            >
+              <X size={24} />
+            </button>
 
-export default SuaveSponsorship;
+            <div className="mb-8">
+              <h3 className="text-2xl md:text-3xl font-serif mb-2 text-white">Join Our Talent Roster
