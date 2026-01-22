@@ -76,11 +76,11 @@ const SuaveSponsorship = () => {
   const content = {
     corporate: {
       headline: "Corporate Dominance",
-      subhead: "No need to keep buying e-commerce real-estate online. Start building cultural capital together, to scale collectively.",
+      subhead: "Stop repeatedly buying e-commerce real-estate online. Start building cultural capital together, to scale collectively.",
       stats: [
-        { number: '10x your time', label: 'Return on Investment' },
-        { number: 'Aim high. 1B+ views', label: 'Total Audience Reach' },
-        { number: '1000-5000', label: 'VIP Guests Hosted' },
+        { number: '10x your time efficiency', label: 'Return on Investment' },
+        { number: 'Aim high. 1B+ views across The Suave Collective', label: 'Total Audience Reach' },
+        { number: '1000-5000 across the entire talent pool', label: 'VIP Guests Hosted' },
         { number: '100+', label: 'Brand Advocate Activations' }
       ],
       benefits: [
@@ -231,7 +231,7 @@ const SuaveSponsorship = () => {
                 Curated.
               </h1>
               <p className="text-lg text-gray-400 max-w-xl leading-relaxed border-l border-pink-500 pl-6">
-                We bridge the gap between premium brand strategy and authentic community impact. No fluff. Just results.
+                We bridge the gap between authentic, personally-relevant brand strategy and maximum social media impact in cyclical, recurrent feedback-loop manner.
               </p>
             </div>
             
