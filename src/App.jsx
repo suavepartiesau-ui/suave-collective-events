@@ -17,7 +17,7 @@ import {
 
 const SuaveSponsorship = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState('corporate');
+  const [activeTab, setActiveTab] = useState('corporate'); // 'corporate' or 'community'
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
   const [talentModalOpen, setTalentModalOpen] = useState(false);
@@ -30,7 +30,7 @@ const SuaveSponsorship = () => {
     discipline: 'Musician / Vocalist'
   });
 
-  // Team Members Data 
+  // NEW: Team Members Data 
   const teamMembers = [
     {
       name: "Carlito Luaton", 
@@ -67,6 +67,7 @@ const SuaveSponsorship = () => {
     const subject = `Talent Application: ${formData.name}`;
     const body = `Name: ${formData.name}\nHandle: ${formData.handle}\nEmail: ${formData.email}\nPrimary Discipline: ${formData.discipline}`;
     
+    // Open email client with pre-filled data
     window.location.href = `mailto:suaveparties.au@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -129,6 +130,7 @@ const SuaveSponsorship = () => {
   };
 
   return (
+    // FIX: Added overflow-x-hidden to prevent horizontal scrolling issues on mobile
     <div className="min-h-screen bg-black text-white font-sans selection:bg-pink-500 selection:text-white relative overflow-x-hidden w-full">
       
       {/* Slimline Navigation */}
@@ -136,17 +138,18 @@ const SuaveSponsorship = () => {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           
           {/* Logo Integration */}
-          <div className="flex items-center gap-3 md:gap-6">
+          <div className="flex items-center gap-6">
+             {/* FIX: Switched to .png as per latest instruction */}
              <img 
                src="/logo.png" 
                alt="Suave Collective Logo" 
-               className="h-12 md:h-24 lg:h-32 w-auto object-contain"
+               className="h-24 md:h-32 w-auto object-contain"
                onError={(e) => {
-                 e.target.style.display = 'none';
+                 e.target.style.display = 'none'; // Hide if broken
                  console.log("Logo failed to load: check if logo.png exists in public/");
                }}
              />
-             <span className="font-serif text-sm md:text-xl lg:text-2xl tracking-wide font-bold">THE SUAVE COLLECTIVE</span>
+             <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
 
           {/* Desktop Links - Minimalist */}
@@ -172,7 +175,7 @@ const SuaveSponsorship = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black pt-32 px-6 md:hidden animate-in slide-in-from-top-10 flex flex-col h-screen overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-black pt-32 px-6 md:hidden animate-in slide-in-from-top-10 flex flex-col h-screen">
           <div className="flex flex-col space-y-8">
             {['Events', 'Talent'].map((item) => (
               <a 
@@ -198,18 +201,18 @@ const SuaveSponsorship = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-40 md:pt-60 pb-20 border-b border-white/10 overflow-x-hidden">
+      <section className="relative pt-40 md:pt-60 pb-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div className="max-w-3xl">
               <div className="inline-block mb-6">
                  <span className="text-xs font-bold text-pink-500 tracking-[0.2em] uppercase border border-pink-500/30 px-3 py-1 rounded-sm">2026 Season</span>
               </div>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif leading-[0.9] mb-8 text-white">
+              <h1 className="text-5xl md:text-8xl font-serif leading-[0.9] mb-8 text-white">
                 Culture <br />
                 Curated.
               </h1>
-              <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed border-l border-pink-500 pl-6">
+              <p className="text-lg text-gray-400 max-w-xl leading-relaxed border-l border-pink-500 pl-6">
                 We bridge the gap between premium brand strategy and authentic community impact. No fluff. Just results.
               </p>
             </div>
@@ -225,9 +228,9 @@ const SuaveSponsorship = () => {
       </section>
 
       {/* LEADERSHIP / FOUNDER SECTION */}
-      <section className="py-0 border-b border-white/10 bg-zinc-950 overflow-x-hidden">
+      <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column */}
+            {/* Image Column - FIX: Changed object-contain to object-cover, added min-h, and kept object-top */}
             <div className="relative h-[600px] md:h-full min-h-[500px] w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center group">
                <img 
                  src="/profile1.jpg" 
@@ -243,11 +246,11 @@ const SuaveSponsorship = () => {
             </div>
 
             {/* Content Column */}
-            <div className="p-8 md:p-12 lg:p-20 flex flex-col justify-center">
-               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-8 leading-tight">
+            <div className="p-10 md:p-20 flex flex-col justify-center">
+               <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
                   "We don't just occupy space. We define it."
                </h2>
-               <div className="space-y-6 text-gray-400 leading-relaxed text-base md:text-lg">
+               <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                   <p>
                      The Suave Collective was born with the ideology that good and average are the enemy of great. In a world teeming with potential, we saw a gap between raw talent and world-class execution.
                   </p>
@@ -259,31 +262,32 @@ const SuaveSponsorship = () => {
                   <img 
                      src="/signature.jpg" 
                      alt="Signature"
-                     className="h-12 md:h-16 object-contain opacity-80"
+                     className="h-16 object-contain opacity-80"
                   />
                </div>
             </div>
          </div>
       </section>
 
-      {/* TEAM SECTION */}
-      <section className="py-16 md:py-24 bg-black border-b border-white/10 overflow-x-hidden" id="talent">
+      {/* NEW: TEAM SECTION */}
+      <section className="py-24 bg-black border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div>
               <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-4">The Collective</div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif">Meet the Core</h2>
+              <h2 className="text-4xl md:text-5xl font-serif">Meet the Core</h2>
             </div>
             <p className="text-gray-400 max-w-md text-sm leading-relaxed">
               A multidisciplinary team of strategists, creatives, and operators dedicated to the art of the event.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, idx) => (
               <div key={idx} className="group relative border border-white/10 bg-zinc-900/30 overflow-hidden">
-                {/* Image */}
+                {/* Image Placeholder */}
                 <div className="h-[400px] w-full bg-zinc-800 relative overflow-hidden">
+                  {/* FIX: Added object-top class to prevent head cropping */}
                   <img 
                      src={member.image} 
                      alt={member.name}
@@ -306,19 +310,16 @@ const SuaveSponsorship = () => {
                   </div>
                 </div>
                 
-                <div className="p-6 md:p-8">
+                <div className="p-8">
                   <h3 className="text-xl font-serif font-bold text-white mb-1">{member.name}</h3>
                   <div className="text-xs uppercase tracking-widest text-pink-500 mb-4">{member.role}</div>
-                  <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-line">{member.bio}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed whitespace-pre-wrap">{member.bio}</p>
                 </div>
               </div>
             ))}
             
             {/* Join Us Card */}
-            <div 
-              className="border border-dashed border-white/20 flex flex-col items-center justify-center p-8 text-center min-h-[400px] hover:bg-white/5 transition-colors group cursor-pointer" 
-              onClick={() => setTalentModalOpen(true)}
-            >
+            <div className="border border-dashed border-white/20 flex flex-col items-center justify-center p-8 text-center min-h-[400px] hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => setTalentModalOpen(true)}>
               <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 text-gray-500 group-hover:text-pink-500 group-hover:border-pink-500 transition-all">
                 <Users size={24} />
               </div>
@@ -351,38 +352,38 @@ const SuaveSponsorship = () => {
       </section>
 
       {/* Dynamic Content */}
-      <section className="min-h-screen bg-black overflow-x-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20 animate-in fade-in duration-700 key={activeTab}">
+      <section className="min-h-screen bg-black">
+        <div className="max-w-7xl mx-auto px-6 py-20 animate-in fade-in duration-700 key={activeTab}">
           
-          <div className="mb-16 md:mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif mb-6">{content[activeTab].headline}</h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl">{content[activeTab].subhead}</p>
+          <div className="mb-20">
+            <h2 className="text-4xl md:text-6xl font-serif mb-6">{content[activeTab].headline}</h2>
+            <p className="text-xl text-gray-400 max-w-2xl">{content[activeTab].subhead}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 border-t border-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10">
             {content[activeTab].stats.map((stat, idx) => (
-              <div key={idx} className="py-8 md:py-10 border-b border-white/10 sm:border-b-0 md:border-r border-white/10 md:last:border-r-0 px-4 md:pr-6">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-light mb-2">{stat.number}</div>
+              <div key={idx} className="py-10 border-b border-white/10 md:border-b-0 md:border-r border-white/10 md:last:border-r-0 pr-6">
+                <div className="text-3xl md:text-4xl font-light mb-2">{stat.number}</div>
                 <div className="text-xs uppercase tracking-widest text-gray-500">{stat.label}</div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 md:mt-20 border-t border-white/10">
+          <div className="mt-20 border-t border-white/10">
             {content[activeTab].benefits.map((benefit, idx) => {
               const Icon = benefit.icon;
               return (
-                <div key={idx} className="group flex flex-col md:flex-row md:items-center py-8 md:py-12 border-b border-white/10 hover:bg-white/5 transition-colors cursor-pointer px-4 md:px-0">
+                <div key={idx} className="group flex flex-col md:flex-row md:items-center py-12 border-b border-white/10 hover:bg-white/5 transition-colors cursor-pointer">
                   <div className="md:w-1/4 mb-4 md:mb-0">
                     <div className={`w-12 h-12 flex items-center justify-center border border-white/20 rounded-full ${activeTab === 'corporate' ? 'text-pink-500' : 'text-amber-500'}`}>
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
                   <div className="md:w-1/2 mb-4 md:mb-0">
-                    <h3 className="text-xl md:text-2xl font-serif mb-2">{benefit.title}</h3>
+                    <h3 className="text-2xl font-serif mb-2">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed max-w-md">{benefit.desc}</p>
                   </div>
-                  <div className="md:w-1/4 flex justify-start md:justify-end">
+                  <div className="md:w-1/4 flex justify-end">
                     <div className="w-8 h-8 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
                       <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform" />
                     </div>
@@ -392,19 +393,19 @@ const SuaveSponsorship = () => {
             })}
           </div>
 
-          <div className="mt-12 md:mt-20 relative min-h-[300px] md:h-[400px] w-full overflow-hidden group cursor-pointer">
+          <div className="mt-20 relative h-[400px] w-full overflow-hidden group cursor-pointer">
              <div className={`absolute inset-0 bg-gradient-to-r ${activeTab === 'corporate' ? 'from-pink-900/40 to-black' : 'from-amber-900/40 to-black'}`}></div>
              <div className="absolute inset-0 border border-white/10"></div>
              
-             <div className="absolute bottom-0 left-0 p-6 md:p-8 lg:p-12 w-full">
-               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+             <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+               <div className="flex items-end justify-between">
                  <div>
                    <div className="text-xs uppercase tracking-widest mb-4 text-white/60">Next Steps</div>
-                   <h3 className="text-2xl md:text-3xl lg:text-5xl font-serif">
+                   <h3 className="text-3xl md:text-5xl font-serif">
                      {activeTab === 'corporate' ? 'Download Corporate Deck' : 'View Impact Report'}
                    </h3>
                  </div>
-                 <button className={`w-full md:w-auto px-8 py-3 border ${activeTab === 'corporate' ? 'border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white' : 'border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white'} text-xs font-bold uppercase tracking-[0.2em] transition-all`}>
+                 <button className={`hidden md:flex px-8 py-3 border ${activeTab === 'corporate' ? 'border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white' : 'border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white'} text-xs font-bold uppercase tracking-[0.2em] transition-all`}>
                    Access File
                  </button>
                </div>
@@ -415,7 +416,7 @@ const SuaveSponsorship = () => {
       </section>
 
       {/* Footer - Minimalist */}
-      <footer className="border-t border-white/10 bg-black py-16 md:py-20 overflow-x-hidden">
+      <footer className="border-t border-white/10 bg-black py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start gap-12">
             <div>
@@ -444,30 +445,33 @@ const SuaveSponsorship = () => {
             </div>
           </div>
           
-          <div className="mt-16 md:mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 gap-4">
+          <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
              <p>© 2026 The Suave Collective.</p>
-             <p className="text-center md:text-right">Designed lovingly in South Australia, created consciously and developed with due diligence for Artists, Performers and Corporate Sponsors.</p>
+             <p>Designed lovingly in South Australia, created consciously and developed with due diligence for Artists, Performers and Corporate Sponsors.</p>
           </div>
         </div>
       </footer>
 
       {/* Partner Access Modal */}
       {partnerModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 py-8 overflow-y-auto">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+          {/* Backdrop */}
           <div 
             className="absolute inset-0 bg-black/90 backdrop-blur-sm"
             onClick={() => setPartnerModalOpen(false)}
           ></div>
           
-          <div className="relative bg-zinc-950 border border-white/10 p-6 md:p-8 lg:p-12 max-w-lg w-full shadow-2xl animate-in zoom-in-50 duration-300 my-auto max-h-[90vh] overflow-y-auto">
+          {/* Modal Content */}
+          <div className="relative bg-zinc-950 border border-white/10 p-8 md:p-12 max-w-lg w-full shadow-2xl animate-in zoom-in-50 duration-300">
+            {/* Close Button */}
             <button 
               onClick={() => setPartnerModalOpen(false)}
-              className="absolute top-4 right-4 text-zinc-500 hover:text-white z-10"
+              className="absolute top-4 right-4 text-zinc-500 hover:text-white"
             >
               <X size={24} />
             </button>
 
-            <h3 className="text-2xl md:text-3xl font-serif mb-2 text-white">Partner Direct Line</h3>
+            <h3 className="text-3xl font-serif mb-2 text-white">Partner Direct Line</h3>
             <p className="text-gray-400 mb-8">Priority access for Corporate & Small Business Sponsors.</p>
 
             <div className="space-y-4">
@@ -502,4 +506,74 @@ const SuaveSponsorship = () => {
             </button>
 
             <div className="mb-8">
-              <h3 className="text-2xl md:text-3xl font-serif mb-2 text-white">Join Our Talent Roster
+              <h3 className="text-2xl md:text-3xl font-serif mb-2 text-white">Join Our Talent Roster</h3>
+              <p className="text-gray-400">If you are an artist, performer, or creative ready to scale, we want to hear from you.</p>
+            </div>
+
+            <form className="space-y-6" onSubmit={handleApply}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-gray-500">Full Name</label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                    placeholder="Name" 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-gray-500">Stage Name / Handle</label>
+                  <input 
+                    type="text" 
+                    name="handle"
+                    value={formData.handle}
+                    onChange={handleInputChange}
+                    className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                    placeholder="@handle" 
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-gray-500">Email Address</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors" 
+                  placeholder="email@address.com" 
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs uppercase tracking-widest text-gray-500">Primary Discipline</label>
+                <select 
+                  name="discipline"
+                  value={formData.discipline}
+                  onChange={handleInputChange}
+                  className="w-full bg-black border border-white/10 p-4 text-white focus:border-pink-500 focus:outline-none transition-colors appearance-none"
+                >
+                  <option>Musician / Vocalist</option>
+                  <option>Visual Artist</option>
+                  <option>DJ / Producer</option>
+                  <option>Dancer / Performer</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <button className="w-full bg-white text-black font-bold uppercase tracking-[0.2em] py-5 hover:bg-pink-500 hover:text-white transition-all mt-4">
+                Apply Now
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+};
+
+export default SuaveSponsorship;
