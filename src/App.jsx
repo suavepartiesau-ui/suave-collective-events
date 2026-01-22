@@ -155,11 +155,15 @@ const SuaveSponsorship = () => {
 
           {/* Desktop Links - Minimalist */}
           <div className="hidden md:flex items-center space-x-12">
-            {['Home', 'Events', 'Talent'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
-                {item}
-              </a>
-            ))}
+            <a href="#home" className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
+              Home
+            </a>
+            <a href="https://www.instagram.com/suavexcollective/" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
+              Events
+            </a>
+            <a href="#talent" className="text-xs uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors duration-300">
+              Talent
+            </a>
             <button 
               onClick={() => setPartnerModalOpen(true)}
               className="text-xs uppercase tracking-[0.2em] font-bold border-b border-white pb-1 hover:text-pink-500 hover:border-pink-500 transition-all"
@@ -178,16 +182,29 @@ const SuaveSponsorship = () => {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black pt-32 px-6 md:hidden animate-in slide-in-from-top-10 flex flex-col h-screen">
           <div className="flex flex-col space-y-8">
-            {['Home', 'Events', 'Talent'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase()}`} 
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-3xl font-serif text-white border-b border-white/10 pb-4"
-              >
-                {item}
-              </a>
-            ))}
+            <a 
+              href="#home" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-3xl font-serif text-white border-b border-white/10 pb-4"
+            >
+              Home
+            </a>
+            <a 
+              href="https://www.instagram.com/suavexcollective/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-3xl font-serif text-white border-b border-white/10 pb-4"
+            >
+              Events
+            </a>
+            <a 
+              href="#talent" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-3xl font-serif text-white border-b border-white/10 pb-4"
+            >
+              Talent
+            </a>
             <button 
               onClick={() => {
                 setPartnerModalOpen(true);
@@ -258,7 +275,7 @@ const SuaveSponsorship = () => {
                </div>
                <div className="mt-12">
                   <img 
-                     src="/signature.png" 
+                     src="/signature.jpg" 
                      alt="Signature"
                      className="h-16 object-contain opacity-80"
                   />
