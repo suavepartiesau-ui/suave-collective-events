@@ -3,18 +3,16 @@ import {
   ArrowRight, 
   TrendingUp, 
   Users, 
-  Award, 
   Zap, 
-  Heart, 
   Globe, 
   Music, 
   Briefcase, 
   Menu, 
   X, 
-  ChevronDown,
   Phone,
   MessageCircle,
-  Mail
+  Mail,
+  Linkedin
 } from 'lucide-react';
 
 const SuaveSponsorship = () => {
@@ -30,6 +28,23 @@ const SuaveSponsorship = () => {
     email: '',
     discipline: 'Musician / Vocalist'
   });
+
+  // NEW: Team Members Data 
+  // Images updated to the clean filenames: "carlito.jpg" and "clara.jpg"
+  const teamMembers = [
+    {
+      name: "Carlito Luaton", 
+      role: "Head of Operations", // Placeholder Role
+      bio: "Ensuring the vision is executed with military precision and fluid style.", // Placeholder Bio
+      image: "/carlito.jpg" 
+    },
+    {
+      name: "Clara Eka", 
+      role: "Community Manager", // Placeholder Role
+      bio: "Expert in grassroots movements and digital community building.", // Placeholder Bio
+      image: "/clara.jpg" 
+    }
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -60,10 +75,10 @@ const SuaveSponsorship = () => {
   const content = {
     corporate: {
       headline: "Corporate Dominance",
-      subhead: "No need to keep buying e-commerce real-estate online. Start building cultural capital togther, to scale collectively.",
+      subhead: "No need to keep buying e-commerce real-estate online. Start building cultural capital together, to scale collectively.",
       stats: [
         { number: '10x your time', label: 'Return on Investment' },
-        { number: 'Aim high. 1B+ views across accounts', label: 'Total Audience Reach' },
+        { number: 'Aim high. 1B+ views', label: 'Total Audience Reach' },
         { number: '1000-5000', label: 'VIP Guests Hosted' },
         { number: '100+', label: 'Brand Advocate Activations' }
       ],
@@ -75,7 +90,7 @@ const SuaveSponsorship = () => {
         },
         {
           title: 'Executive Hospitality',
-          desc: 'The ideal deal-closing environment is networking through VIP experiences at a sold-out shows.',
+          desc: 'The ideal deal-closing environment is networking through VIP experiences at sold-out shows.',
           icon: Briefcase
         },
         {
@@ -92,7 +107,7 @@ const SuaveSponsorship = () => {
         { number: '10', label: 'Direct Artist Grants' },
         { number: '?', label: 'Local Jobs Created' },
         { number: '95%', label: 'Diverse Talent Representation' },
-        { number: 'Free Business and Finance Strategy Workshop for Unique Individuals', label: 'Public Workshops' }
+        { number: 'Free Workshops', label: 'Business & Strategy' }
       ],
       benefits: [
         {
@@ -115,19 +130,20 @@ const SuaveSponsorship = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-pink-500 selection:text-white relative">
+    // FIX: Added overflow-x-hidden to prevent horizontal scrolling issues on mobile
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-pink-500 selection:text-white relative overflow-x-hidden w-full">
       
       {/* Slimline Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-500 border-b border-white/10 ${scrolled ? 'bg-black py-4' : 'bg-black/90 backdrop-blur-sm py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           
-          {/* Logo Integration - INCREASED SIZE 100% */}
+          {/* Logo Integration */}
           <div className="flex items-center gap-6">
-             {/* Mobile: h-24 (Big), Desktop: h-32 (Huge) to ensure visibility */}
+             {/* FIX: Updated file extension to .jpg to match upload */}
              <img 
-               src="/logo.png" 
+               src="/logo.jpg" 
                alt="Suave Collective Logo" 
-               className="h-24 md:h-32 w-auto object-contain" 
+               className="h-16 md:h-24 w-auto object-contain" 
              />
              <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
@@ -147,7 +163,7 @@ const SuaveSponsorship = () => {
             </button>
           </div>
 
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-white">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-white z-50 relative">
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -155,10 +171,15 @@ const SuaveSponsorship = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black pt-28 px-6 md:hidden animate-in slide-in-from-top-10">
+        <div className="fixed inset-0 z-40 bg-black pt-32 px-6 md:hidden animate-in slide-in-from-top-10 flex flex-col h-screen">
           <div className="flex flex-col space-y-8">
             {['Events', 'Talent'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-3xl font-serif text-white border-b border-white/10 pb-4">
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-3xl font-serif text-white border-b border-white/10 pb-4"
+              >
                 {item}
               </a>
             ))}
@@ -176,7 +197,7 @@ const SuaveSponsorship = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-44 md:pt-60 pb-20 border-b border-white/10">
+      <section className="relative pt-40 md:pt-60 pb-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div className="max-w-3xl">
@@ -193,7 +214,7 @@ const SuaveSponsorship = () => {
             </div>
             
             <div className="w-full md:w-auto">
-               <button className="w-full md:w-auto bg-white text-black px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-gray-200 transition-colors flex items-center justify-between group">
+               <button onClick={() => setPartnerModalOpen(true)} className="w-full md:w-auto bg-white text-black px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-gray-200 transition-colors flex items-center justify-between group">
                  <span>Explore Opportunities</span>
                  <ArrowRight className="w-4 h-4 ml-4 group-hover:translate-x-2 transition-transform" />
                </button>
@@ -202,20 +223,18 @@ const SuaveSponsorship = () => {
         </div>
       </section>
 
-      {/* LEADERSHIP / ABOUT SECTION - Integrated with Photo */}
+      {/* LEADERSHIP / FOUNDER SECTION */}
       <section className="py-0 border-b border-white/10 bg-zinc-950">
          <div className="grid md:grid-cols-2">
-            {/* Image Column - FULL VISIBILITY & CENTERED FIX */}
-            <div className="relative h-[600px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center">
+            {/* Image Column */}
+            <div className="relative h-[500px] md:h-auto w-full overflow-hidden bg-black/50 flex flex-col items-center justify-center group">
                <img 
                  src="/profile1.jpg" 
                  alt="Rahul Reddy - Creative Managing Partner" 
-                 className="absolute inset-0 w-full h-full object-contain object-center" 
+                 className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" 
                />
-               {/* Reduced opacity of gradient so photo is clearer */}
-               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
+               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60"></div>
                
-               {/* CENTERED TEXT OVERLAY */}
                <div className="absolute bottom-12 w-full text-center z-10">
                   <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-2">The Founder</div>
                   <h3 className="text-3xl font-serif text-white">Rahul Reddy</h3>
@@ -229,20 +248,17 @@ const SuaveSponsorship = () => {
                </h2>
                <div className="space-y-6 text-gray-400 leading-relaxed text-lg">
                   <p>
-                     The Suave Collective was born with the ideology that good, and average are the enemy of great. In a world teeming with potential, we saw a gap between raw talent and world-class execution.
+                     The Suave Collective was born with the ideology that good and average are the enemy of great. In a world teeming with potential, we saw a gap between raw talent and world-class execution.
                   </p>
                   <p>
                      We operate at the intersection of nightlife, corporate precision, and artistic chaos. Our mission is simple: to build platforms where brands don't just advertise—they become part of the cultural fabric.
                   </p>
-                  <p>
-                     When you contract with us, you aren't part of anything but a collective that cares. You are joining a cultural movement that is reshaping the identity of Australia and International Artists from all walks of life.
-                  </p>
                </div>
                <div className="mt-12">
-                  {/* Signature Slot - Updated to use signature.png */}
+                  {/* FIX: Updated to .jpg to match upload */}
                   <img 
-                     src="/signature.png" 
-                     alt="Signature Placeholder"
+                     src="/signature.jpg" 
+                     alt="Signature"
                      className="h-16 object-contain opacity-80"
                   />
                </div>
@@ -250,8 +266,70 @@ const SuaveSponsorship = () => {
          </div>
       </section>
 
+      {/* NEW: TEAM SECTION */}
+      <section className="py-24 bg-black border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-pink-500 mb-4">The Collective</div>
+              <h2 className="text-4xl md:text-5xl font-serif">Meet the Core</h2>
+            </div>
+            <p className="text-gray-400 max-w-md text-sm leading-relaxed">
+              A multidisciplinary team of strategists, creatives, and operators dedicated to the art of the event.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, idx) => (
+              <div key={idx} className="group relative border border-white/10 bg-zinc-900/30 overflow-hidden">
+                {/* Image Placeholder */}
+                {/* Added 'onerror' fallback to show a colored block if image isn't uploaded yet */}
+                <div className="h-[400px] w-full bg-zinc-800 relative overflow-hidden">
+                  <img 
+                     src={member.image} 
+                     alt={member.name}
+                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                     onError={(e) => {
+                       e.target.style.display = 'none'; // Hide broken image icon
+                       e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'text-gray-600');
+                       e.target.parentElement.innerHTML = '<span>Image not found</span>';
+                     }}
+                  />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                    <button className="p-2 rounded-full bg-white text-black hover:bg-pink-500 hover:text-white transition-colors">
+                      <Linkedin size={20} />
+                    </button>
+                    <button className="p-2 rounded-full bg-white text-black hover:bg-pink-500 hover:text-white transition-colors">
+                      <Mail size={20} />
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="p-8">
+                  <h3 className="text-xl font-serif font-bold text-white mb-1">{member.name}</h3>
+                  <div className="text-xs uppercase tracking-widest text-pink-500 mb-4">{member.role}</div>
+                  <p className="text-gray-400 text-sm leading-relaxed">{member.bio}</p>
+                </div>
+              </div>
+            ))}
+            
+            {/* Join Us Card */}
+            <div className="border border-dashed border-white/20 flex flex-col items-center justify-center p-8 text-center min-h-[400px] hover:bg-white/5 transition-colors group cursor-pointer" onClick={() => window.location.href='mailto:suaveparties.au@gmail.com'}>
+              <div className="w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 text-gray-500 group-hover:text-pink-500 group-hover:border-pink-500 transition-all">
+                <Users size={24} />
+              </div>
+              <h3 className="text-xl font-serif text-white mb-2">Join the Collective</h3>
+              <p className="text-gray-500 text-sm max-w-xs mb-6">We are always looking for exceptional talent to join our ranks.</p>
+              <span className="text-xs font-bold uppercase tracking-widest text-white border-b border-white pb-1 group-hover:border-pink-500 transition-colors">Apply Now</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Tabbed Interface */}
-      <section className="sticky top-20 z-40 bg-black/95 backdrop-blur border-b border-white/10">
+      <section className="sticky top-0 md:top-0 z-30 bg-black/95 backdrop-blur border-b border-white/10 pt-4">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex space-x-8 overflow-x-auto no-scrollbar">
             <button 
