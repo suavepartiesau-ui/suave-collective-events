@@ -231,7 +231,7 @@ const SuaveSponsorship = () => {
                 Curated.
               </h1>
               <p className="text-lg text-gray-400 max-w-xl leading-relaxed border-l border-pink-500 pl-6">
-                We bridge the gap between authentic, personally-relevant brand strategy and maximum social media impact in cyclical, recurrent feedback-loop manner.
+                We bridge the gap between authentic, personally-relevant brand strategy and maximum social media impact in a cyclical, recurrent feedback-loop manner.
               </p>
             </div>
             
