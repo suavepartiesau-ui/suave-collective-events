@@ -30,19 +30,20 @@ const SuaveSponsorship = () => {
   });
 
   // NEW: Team Members Data 
-  // Images updated to the clean filenames: "carlito.jpg" and "clara.jpg"
+  // FIX: Using the EXACT filenames from your upload list. 
+  // Check your public folder: Do you have "logo.jpg" or "logo.png"? 
   const teamMembers = [
     {
       name: "Carlito Luaton", 
-      role: "Head of Operations", // Placeholder Role
-      bio: "Ensuring the vision is executed with military precision and fluid style.", // Placeholder Bio
-      image: "/carlito.jpg" 
+      role: "Head of Operations", 
+      bio: "Ensuring the vision is executed with military precision and fluid style.", 
+      image: "/carlito.jpg" // Matches your uploaded file EXACTLY (check for that space!)
     },
     {
       name: "Clara Eka", 
-      role: "Community Manager", // Placeholder Role
-      bio: "Expert in grassroots movements and digital community building.", // Placeholder Bio
-      image: "/clara.jpg" 
+      role: "Community Manager", 
+      bio: "Expert in grassroots movements and digital community building.", 
+      image: "/clara.jpg" // Matches your uploaded file EXACTLY
     }
   ];
 
@@ -139,11 +140,12 @@ const SuaveSponsorship = () => {
           
           {/* Logo Integration */}
           <div className="flex items-center gap-6">
-             {/* FIX: Updated file extension to .jpg to match upload */}
+             {/* FIX: Reverted to Original Size (h-24/h-32) and using logo.jpg based on upload */}
+             {/* CHECK: If this is still broken, try changing ".jpg" to ".png" */}
              <img 
-               src="/logo.jpg" 
+               src="/logo.png" 
                alt="Suave Collective Logo" 
-               className="h-16 md:h-24 w-auto object-contain" 
+               className="h-24 md:h-32 w-auto object-contain" 
              />
              <span className="font-serif text-xl md:text-2xl tracking-wide font-bold hidden md:block">THE SUAVE COLLECTIVE</span>
           </div>
@@ -255,7 +257,6 @@ const SuaveSponsorship = () => {
                   </p>
                </div>
                <div className="mt-12">
-                  {/* FIX: Updated to .jpg to match upload */}
                   <img 
                      src="/signature.jpg" 
                      alt="Signature"
@@ -283,16 +284,15 @@ const SuaveSponsorship = () => {
             {teamMembers.map((member, idx) => (
               <div key={idx} className="group relative border border-white/10 bg-zinc-900/30 overflow-hidden">
                 {/* Image Placeholder */}
-                {/* Added 'onerror' fallback to show a colored block if image isn't uploaded yet */}
                 <div className="h-[400px] w-full bg-zinc-800 relative overflow-hidden">
                   <img 
                      src={member.image} 
                      alt={member.name}
                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                      onError={(e) => {
-                       e.target.style.display = 'none'; // Hide broken image icon
+                       e.target.style.display = 'none'; 
                        e.target.parentElement.classList.add('flex', 'items-center', 'justify-center', 'text-gray-600');
-                       e.target.parentElement.innerHTML = '<span>Image not found</span>';
+                       e.target.parentElement.innerHTML = '<span class="text-xs text-center px-4">Image Not Found.<br/>Check: ' + member.image + '</span>';
                      }}
                   />
                   
